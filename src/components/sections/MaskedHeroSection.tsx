@@ -80,29 +80,7 @@ export default function MaskedHeroSection() {
         </motion.div>
       </div>
 
-      {/* Scroll indicator with enhanced animation - hidden on mobile */}
-      <motion.div
-        animate={{ y: [0, 12, 0] }}
-        transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-20 hidden sm:flex"
-      >
-        <div className="flex flex-col items-center gap-3">
-          <span className="text-white/70 text-xs md:text-sm font-paragraph tracking-widest uppercase">Scroll</span>
-          <svg
-            className="w-5 h-5 md:w-6 md:h-6 text-white/70 animate-pulse"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
-        </div>
-      </motion.div>
+
     </section>
   );
 }
