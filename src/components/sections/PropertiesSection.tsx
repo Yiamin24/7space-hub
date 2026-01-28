@@ -57,7 +57,7 @@ export default function PropertiesSection({ onOpenPopup }: PropertiesSectionProp
             ))
           ) : properties.length > 0 ? (
             properties.map((property, index) => (
-              <PropertyCard key={property._id} property={property} index={index} />
+              <PropertyCard key={property._id} property={property} index={index} onOpenPopup={onOpenPopup} />
             ))
           ) : (
             <div className="col-span-full text-center py-12">
@@ -89,7 +89,7 @@ export default function PropertiesSection({ onOpenPopup }: PropertiesSectionProp
   );
 }
 
-function PropertyCard({ property, index }: { property: CommercialProperties; index: number }) {
+function PropertyCard({ property, index, onOpenPopup }: { property: CommercialProperties; index: number; onOpenPopup?: () => void }) {
   const formatPrice = (price?: number) => {
     if (!price) return 'Contact';
     if (price >= 100000) return `₹${(price / 100000).toFixed(1)}L`;
