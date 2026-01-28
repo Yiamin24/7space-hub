@@ -73,8 +73,8 @@ export default function HomePage() {
       <Header />
 
       <main className="relative w-full overflow-hidden">
-        <HeroSection isMobile={isMobile} />
         <MaskedHeroSection />
+        <HeroSection isMobile={isMobile} />
 
         {/* FEATURED SECTION - Clean Grid */}
         <motion.section 
