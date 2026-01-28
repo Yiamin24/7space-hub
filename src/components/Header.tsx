@@ -60,7 +60,7 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-                  className="font-paragraph text-xs sm:text-sm font-medium text-foreground transition-colors hover:text-primary"
+                  className="font-paragraph text-sm md:text-base font-medium text-foreground transition-colors hover:text-primary"
                 >
                   {link.label}
                 </a>

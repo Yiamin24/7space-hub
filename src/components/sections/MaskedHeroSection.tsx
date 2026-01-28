@@ -38,18 +38,11 @@ export default function MaskedHeroSection() {
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               filter: 'drop-shadow(0 8px 32px rgba(0, 0, 0, 0.5))',
+              opacity: 0.95,
             }}
           >
             7 Doors
           </div>
-
-          {/* Animated accent line */}
-          <motion.div
-            initial={{ scaleX: 0, opacity: 0 }}
-            animate={{ scaleX: 1, opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.8, ease: 'easeOut' }}
-            className="h-1 md:h-1.5 bg-gradient-to-r from-transparent via-white/80 to-transparent mt-4 sm:mt-6 md:mt-10 origin-center max-w-xs mx-auto"
-          />
 
           {/* Subtitle with staggered animation */}
           <motion.div
