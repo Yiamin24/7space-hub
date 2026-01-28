@@ -125,7 +125,7 @@ export default function HeroSection({ isMobile, onOpenPopup }: HeroSectionProps)
             className="h-fit w-full"
           >
             <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl border border-gray-200 w-full lg:sticky lg:top-24">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-indigo-600 rounded-t-xl sm:rounded-t-2xl" />
+            
               
               <h3 className="font-heading text-lg sm:text-xl md:text-2xl font-bold text-foreground mb-4 sm:mb-6">
                 Quick Requirement
