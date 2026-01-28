@@ -47,7 +47,7 @@ export default function FeaturedPrioritySection({ onOpenPopup }: FeaturedPriorit
   return (
     <section id="yashada" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
       {/* Responsive decorative line */}
-      <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary hidden lg:block" />
+      <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary hidden xl:block" />
       
       <div className="mx-auto w-full max-w-[120rem] px-4 sm:px-6 md:px-8 lg:px-8">
         <div className="grid gap-8 sm:gap-10 md:gap-12 lg:gap-16 lg:grid-cols-2 items-center">
