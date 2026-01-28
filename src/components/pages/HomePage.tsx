@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import { MessageCircle, Phone, ArrowRight, MapPin, Maximize2, IndianRupee, Building2, Check, ChevronUp, Search } from 'lucide-react';
 import Header from '@/components/Header';
@@ -21,6 +21,8 @@ export default function HomePage() {
   const [carpetArea, setCarpetArea] = useState('');
   const [budget, setBudget] = useState('');
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [currentCardIndex, setCurrentCardIndex] = useState(0);
+  const sliderIntervalRef = useRef<NodeJS.Timeout | null>(null);
   
   // Modern Scroll Progress Indicator
   const { scrollYProgress } = useScroll();
@@ -46,12 +48,24 @@ export default function HomePage() {
     };
   }, []);
 
+  // Auto-slide cards on mobile every 3 seconds
+  useEffect(() => {
+    if (isMobile) {
+      sliderIntervalRef.current = setInterval(() => {
+        setCurrentCardIndex((prev) => (prev + 1) % 6);
+      }, 3000);
+    }
+    return () => {
+      if (sliderIntervalRef.current) clearInterval(sliderIntervalRef.current);
+    };
+  }, [isMobile]);
+
   const handleWhatsAppClick = () => {
     window.open('https://wa.me/919876543210', '_blank');
   };
 
   const handleGetOptions = () => {
-    const message = `Hi, I'm looking for a commercial office space in Pune.\n\nLocation: ${location || 'Any'}\nCarpet Area: ${carpetArea || 'Any'}\nBudget: ${budget || 'Any'}`;
+    const message = `Hi, I'm looking for a commercial office space in Pune.\\n\\nLocation: ${location || 'Any'}\\nCarpet Area: ${carpetArea || 'Any'}\\nBudget: ${budget || 'Any'}`;
     window.open(`https://wa.me/919876543210?text=${encodeURIComponent(message)}`, '_blank');
   };
 
@@ -63,6 +77,15 @@ export default function HomePage() {
     { value: '1800+', label: 'Above 1800 sq.ft' },
   ];
   const budgets = ['₹40k - ₹75k', '₹75k - ₹1.2L', '₹1.2L - ₹2L', '₹2L - ₹3L', '₹3L+'];
+
+  const cardsData = [
+    { icon: Building2, title: 'Verified Listings', desc: 'All properties thoroughly vetted and verified' },
+    { icon: MapPin, title: 'Prime Locations', desc: "Strategically located across Pune's business hubs" },
+    { icon: Maximize2, title: 'Flexible Spaces', desc: 'From 300 to 3000+ sq.ft options available' },
+    { icon: Check, title: 'Expert Support', desc: '24/7 dedicated assistance for your needs' },
+    { icon: IndianRupee, title: 'Transparent Pricing', desc: 'No hidden charges, clear cost breakdown' },
+    { icon: MessageCircle, title: 'Quick Response', desc: 'Instant replies to your inquiries' },
+  ];
 
   return (
     <div className="min-h-screen bg-white font-paragraph text-foreground selection:bg-primary/20">
@@ -102,15 +125,9 @@ export default function HomePage() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                { icon: Building2, title: 'Verified Listings', desc: 'All properties thoroughly vetted and verified' },
-                { icon: MapPin, title: 'Prime Locations', desc: 'Strategically located across Pune\'s business hubs' },
-                { icon: Maximize2, title: 'Flexible Spaces', desc: 'From 300 to 3000+ sq.ft options available' },
-                { icon: Check, title: 'Expert Support', desc: '24/7 dedicated assistance for your needs' },
-                { icon: IndianRupee, title: 'Transparent Pricing', desc: 'No hidden charges, clear cost breakdown' },
-                { icon: MessageCircle, title: 'Quick Response', desc: 'Instant replies to your inquiries' },
-              ].map((item, idx) => (
+            {/* Desktop Grid */}
+            <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {cardsData.map((item, idx) => (
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
@@ -126,6 +143,44 @@ export default function HomePage() {
                   <p className="font-paragraph text-gray-600 text-sm leading-relaxed">{item.desc}</p>
                 </motion.div>
               ))}
+            </div>
+
+            {/* Mobile Slider */}
+            <div className="md:hidden relative">
+              <div className="overflow-hidden">
+                <motion.div
+                  className="flex gap-6"
+                  animate={{ x: -currentCardIndex * (100 + 24) + '%' }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                >
+                  {cardsData.map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="flex-shrink-0 w-full group p-6 rounded-2xl bg-gradient-to-br from-white to-slate-50 border border-gray-100"
+                    >
+                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                        <item.icon className="w-6 h-6 text-primary" />
+                      </div>
+                      <h3 className="font-heading text-lg font-bold text-foreground mb-2">{item.title}</h3>
+                      <p className="font-paragraph text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+                    </div>
+                  ))}
+                </motion.div>
+              </div>
+
+              {/* Slider Indicators */}
+              <div className="flex justify-center gap-2 mt-6">
+                {[0, 1, 2, 3, 4, 5].map((idx) => (
+                  <motion.button
+                    key={idx}
+                    onClick={() => setCurrentCardIndex(idx)}
+                    className={`h-2 rounded-full transition-all ${
+                      idx === currentCardIndex ? 'bg-primary w-6' : 'bg-gray-300 w-2'
+                    }`}
+                    whileHover={{ scale: 1.2 }}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </motion.section>
