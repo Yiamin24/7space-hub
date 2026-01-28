@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
-import { Building2, Briefcase, LayoutGrid, Sofa, Maximize2, Zap } from 'lucide-react';
+import { Building2, Briefcase, LayoutGrid, Sofa, Maximize2, Zap, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState } from 'react';
 
 export default function PropertyTypesSection() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  
   const propertyTypes = [
     { id: 'it', label: 'IT / ITES Office Spaces', icon: Building2, desc: 'Specialized for tech companies' },
     { id: 'corp', label: 'Corporate Office Spaces', icon: Briefcase, desc: 'Professional corporate setups' },
@@ -11,6 +14,14 @@ export default function PropertyTypesSection() {
     { id: 'boutique', label: 'Boutique Commercial Buildings', icon: Zap, desc: 'Premium exclusive spaces' },
     { id: 'business', label: 'Business Park Offices', icon: Building2, desc: 'Integrated business parks' },
   ];
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev === 0 ? propertyTypes.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev === propertyTypes.length - 1 ? 0 : prev + 1));
+  };
 
   return (
     <section id="types" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
@@ -30,31 +41,107 @@ export default function PropertyTypesSection() {
           </p>
         </motion.div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
-          {propertyTypes.map((type, i) => {
-            const IconComponent = type.icon;
-            return (
-              <motion.div
-                key={type.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="group bg-white p-4 sm:p-6 md:p-8 rounded-lg sm:rounded-xl border border-gray-200 hover:border-primary hover:shadow-lg transition-all cursor-pointer hover:-translate-y-1"
+        {/* Grid for desktop, Slider for mobile */}
+        <div>
+          {/* Desktop Grid */}
+          <div className="hidden sm:grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
+            {propertyTypes.map((type, i) => {
+              const IconComponent = type.icon;
+              return (
+                <motion.div
+                  key={type.id}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.05 }}
+                  className="group bg-white p-4 sm:p-6 md:p-8 rounded-lg sm:rounded-xl border border-gray-200 hover:border-primary hover:shadow-lg transition-all cursor-pointer hover:-translate-y-1"
+                >
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-3 sm:mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+                    <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />
+                  </div>
+                  <h4 className="font-heading font-bold text-foreground mb-2 group-hover:text-primary transition-colors text-sm sm:text-base">
+                    {type.label}
+                  </h4>
+                  <p className="text-xs sm:text-sm text-gray-600 group-hover:text-gray-700 transition-colors">
+                    {type.desc}
+                  </p>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Mobile Slider */}
+          <div className="sm:hidden">
+            <div className="relative flex items-center gap-4">
+              {/* Previous Button */}
+              <button
+                onClick={handlePrev}
+                className="absolute left-0 z-10 p-2 rounded-full bg-primary text-white hover:bg-primary/90 transition-colors"
+                aria-label="Previous"
               >
-                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-3 sm:mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
-                  <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />
-                </div>
-                <h4 className="font-heading font-bold text-foreground mb-2 group-hover:text-primary transition-colors text-sm sm:text-base">
-                  {type.label}
-                </h4>
-                <p className="text-xs sm:text-sm text-gray-600 group-hover:text-gray-700 transition-colors">
-                  {type.desc}
-                </p>
-              </motion.div>
-            );
-          })}
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+
+              {/* Slider Container */}
+              <div className="flex-1 overflow-hidden">
+                <motion.div
+                  animate={{ x: -currentIndex * 100 + '%' }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                  className="flex gap-4"
+                >
+                  {propertyTypes.map((type) => {
+                    const IconComponent = type.icon;
+                    return (
+                      <div
+                        key={type.id}
+                        className="flex-shrink-0 w-full px-4"
+                      >
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          className="group bg-white p-6 rounded-lg border border-gray-200 hover:border-primary hover:shadow-lg transition-all cursor-pointer hover:-translate-y-1 h-full"
+                        >
+                          <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+                            <IconComponent className="w-6 h-6" />
+                          </div>
+                          <h4 className="font-heading font-bold text-foreground mb-2 group-hover:text-primary transition-colors text-base">
+                            {type.label}
+                          </h4>
+                          <p className="text-sm text-gray-600 group-hover:text-gray-700 transition-colors">
+                            {type.desc}
+                          </p>
+                        </motion.div>
+                      </div>
+                    );
+                  })}
+                </motion.div>
+              </div>
+
+              {/* Next Button */}
+              <button
+                onClick={handleNext}
+                className="absolute right-0 z-10 p-2 rounded-full bg-primary text-white hover:bg-primary/90 transition-colors"
+                aria-label="Next"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Dots Indicator */}
+            <div className="flex justify-center gap-2 mt-6">
+              {propertyTypes.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`h-2 rounded-full transition-all ${
+                    index === currentIndex ? 'bg-primary w-6' : 'bg-gray-300 w-2'
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
