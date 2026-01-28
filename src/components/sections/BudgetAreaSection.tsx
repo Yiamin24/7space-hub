@@ -94,10 +94,10 @@ export default function BudgetAreaSection() {
           >
             <div>
               <h2 className="font-heading text-3xl lg:text-4xl font-bold text-foreground mb-4">
-                Smart Lead Priority
+                How We Match Your Needs
               </h2>
               <p className="font-paragraph text-lg text-gray-600 leading-relaxed">
-                We prioritize your requirements based on carpet area to ensure the fastest turnaround for high-demand configurations.
+                Our intelligent matching system prioritizes your requirements based on carpet area to connect you with the most suitable office spaces quickly.
               </p>
             </div>
 

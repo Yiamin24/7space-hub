@@ -51,10 +51,10 @@ export default function LocationsSection() {
           className="text-center max-w-3xl mx-auto mb-12 lg:mb-16"
         >
           <h2 className="font-heading text-3xl lg:text-5xl font-bold text-foreground mb-4">
-            Locations We Cover
+            Locations Across Pune
           </h2>
           <p className="font-paragraph text-lg text-gray-600">
-            Prime commercial hubs across Pune with excellent connectivity and infrastructure
+            Explore office spaces in Pune's most sought-after business districts with excellent connectivity and amenities.
           </p>
         </motion.div>
 

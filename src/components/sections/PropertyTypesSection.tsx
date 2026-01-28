@@ -22,10 +22,10 @@ export default function PropertyTypesSection() {
           className="text-center max-w-3xl mx-auto mb-12 lg:mb-16"
         >
           <h2 className="font-heading text-3xl lg:text-5xl font-bold text-foreground mb-4">
-            Property Types
+            Office Space Solutions
           </h2>
           <p className="font-paragraph text-lg text-gray-600">
-            Specialized spaces designed for every business need
+            Choose from a variety of office configurations tailored to your business requirements and budget.
           </p>
         </motion.div>
 

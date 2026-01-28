@@ -38,8 +38,8 @@ export default function HeroSection({ isMobile }: { isMobile: boolean }) {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center bg-white pt-20 lg:pt-0">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-indigo-50 opacity-60 pointer-events-none" />
+      {/* Subtle background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-white opacity-40 pointer-events-none" />
       
       <div className="mx-auto w-full max-w-[120rem] px-4 sm:px-6 lg:px-8 py-12 lg:py-20 relative z-10">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
@@ -50,22 +50,13 @@ export default function HeroSection({ isMobile }: { isMobile: boolean }) {
             transition={{ duration: 0.6 }}
             className="space-y-8"
           >
-            <div className="space-y-4">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
-                className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary font-semibold text-sm"
-              >
-                ✨ Premium Commercial Leasing
-              </motion.div>
-              
-              <h1 className="font-heading text-4xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight">
-                Commercial Office Spaces for Lease in Pune
+            <div className="space-y-6">
+              <h1 className="font-heading text-5xl lg:text-7xl xl:text-8xl font-bold text-foreground leading-tight">
+                Commercial Office Spaces in Pune
               </h1>
               
               <p className="font-paragraph text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl">
-                100+ verified commercial properties across Baner, Balewadi, Wakad, Aundh, Hinjewadi, PCMC & Pashan. Find your perfect office space today.
+                Discover 100+ verified office spaces across Pune's premier business districts. From plug-and-play solutions to bare shell options, we connect you with the perfect workspace for your business.
               </p>
             </div>
 
@@ -81,7 +72,7 @@ export default function HeroSection({ isMobile }: { isMobile: boolean }) {
                   <Building2 className="h-6 w-6" />
                 </div>
                 <p className="font-heading text-2xl lg:text-3xl font-bold text-foreground">100+</p>
-                <p className="font-paragraph text-sm text-gray-600">Listings</p>
+                <p className="font-paragraph text-sm text-gray-600">Verified Spaces</p>
               </motion.div>
               
               <motion.div 
@@ -94,7 +85,7 @@ export default function HeroSection({ isMobile }: { isMobile: boolean }) {
                   <IndianRupee className="h-6 w-6" />
                 </div>
                 <p className="font-heading text-2xl lg:text-3xl font-bold text-foreground">₹40k+</p>
-                <p className="font-paragraph text-sm text-gray-600">Starting Rent</p>
+                <p className="font-paragraph text-sm text-gray-600">Monthly Rent</p>
               </motion.div>
               
               <motion.div 
@@ -106,8 +97,8 @@ export default function HeroSection({ isMobile }: { isMobile: boolean }) {
                 <div className="flex items-center text-primary">
                   <Maximize2 className="h-6 w-6" />
                 </div>
-                <p className="font-heading text-2xl lg:text-3xl font-bold text-foreground">3000+</p>
-                <p className="font-paragraph text-sm text-gray-600">Max Sq.Ft</p>
+                <p className="font-heading text-2xl lg:text-3xl font-bold text-foreground">300-3000</p>
+                <p className="font-paragraph text-sm text-gray-600">Sq.Ft Range</p>
               </motion.div>
             </div>
 

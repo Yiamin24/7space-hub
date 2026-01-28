@@ -37,10 +37,10 @@ export default function PropertiesSection() {
           className="text-center max-w-3xl mx-auto mb-12 lg:mb-16"
         >
           <h2 className="font-heading text-3xl lg:text-5xl font-bold text-foreground mb-4">
-            Explore 100+ Commercial Properties
+            Available Office Spaces
           </h2>
           <p className="font-paragraph text-lg text-gray-600">
-            Curated office spaces across Pune's prime business districts. Find the perfect space for your business.
+            Browse our curated selection of verified commercial properties across Pune's leading business hubs.
           </p>
         </motion.div>
 
@@ -119,12 +119,6 @@ function PropertyCard({ property, index }: { property: CommercialProperties; ind
         <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-md text-xs font-bold text-foreground">
           {property.propertyType || 'Office'}
         </div>
-        
-        {property.isYashadaBusinessZone && (
-          <div className="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-md text-xs font-bold shadow-lg">
-            Premium
-          </div>
-        )}
       </div>
 
       {/* Content */}

@@ -71,9 +71,6 @@ export default function FeaturedPrioritySection() {
             className="space-y-8"
           >
             <div>
-              <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary font-semibold text-sm mb-4">
-                ⭐ Priority Asset
-              </div>
               <h2 className="font-heading text-3xl lg:text-4xl font-bold text-foreground mb-4">
                 Yashada Business Zone
               </h2>

@@ -87,14 +87,11 @@ export default function ContactSection() {
             className="space-y-8"
           >
             <div>
-              <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/20 text-primary font-semibold text-sm mb-4">
-                📞 Contact Us
-              </div>
-              <h2 className="font-heading text-4xl lg:text-5xl font-bold mt-4 mb-6">
-                Get Available Options Quickly
+              <h2 className="font-heading text-4xl lg:text-5xl font-bold mb-6">
+                Find Your Ideal Office Space
               </h2>
               <p className="text-lg text-gray-300 mb-8 max-w-md leading-relaxed">
-                Verified options • Fast response • Site visit assistance. Fill the form to get a curated list of properties.
+                Share your requirements and we'll connect you with verified office spaces that match your needs. Fast response, expert guidance, and site visit assistance.
               </p>
             </div>
 

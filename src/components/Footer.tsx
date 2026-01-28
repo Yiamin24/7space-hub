@@ -24,7 +24,7 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="font-heading font-bold text-2xl text-primary">7Doors</div>
             <p className="font-paragraph text-sm text-gray-300 leading-relaxed">
-              Premium commercial office spaces for lease in Pune. Verified listings across prime business districts.
+              Connecting businesses with ideal office spaces across Pune. Verified listings, expert guidance, and seamless leasing solutions.
             </p>
           </div>
 
