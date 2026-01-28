@@ -4,7 +4,7 @@ import { MessageCircle, Phone, ArrowRight, MapPin, Maximize2, IndianRupee, Build
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Image } from '@/components/ui/image';
-import HeroSection from '@/components/sections/HeroSection';
+import MaskedHeroSection from '@/components/sections/MaskedHeroSection';
 import PropertiesSection from '@/components/sections/PropertiesSection';
 import LocationsSection from '@/components/sections/LocationsSection';
 import PropertyTypesSection from '@/components/sections/PropertyTypesSection';
@@ -72,7 +72,7 @@ export default function HomePage() {
       <Header />
 
       <main className="relative w-full overflow-hidden">
-        <HeroSection isMobile={isMobile} />
+        <MaskedHeroSection />
 
         {/* FEATURED SECTION - Clean Grid */}
         <motion.section 
