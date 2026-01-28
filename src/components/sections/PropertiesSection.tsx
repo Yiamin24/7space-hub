@@ -75,12 +75,11 @@ export default function PropertiesSection({ onOpenPopup }: PropertiesSectionProp
             className="text-center"
           >
             <Button
-              onClick={onOpenPopup}
               variant="outline"
               size="lg"
               className="border-2 border-primary text-primary hover:bg-primary hover:text-white text-sm sm:text-base"
             >
-              Open Pop Up Form
+              Load More Properties
               <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
             </Button>
           </motion.div>
