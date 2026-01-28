@@ -78,11 +78,11 @@ export default function HomePage() {
         style={{ scaleX }}
       />
 
-      <Header />
+      <Header onOpenPopup={() => setIsPopupOpen(true)} />
 
       <main className="relative w-full overflow-hidden">
         <MaskedHeroSection />
-        <HeroSection isMobile={isMobile} />
+        <HeroSection isMobile={isMobile} onOpenPopup={() => setIsPopupOpen(true)} />
 
         {/* FEATURED SECTION - Clean Grid */}
         <motion.section 
@@ -136,11 +136,11 @@ export default function HomePage() {
           </div>
         </motion.section>
 
-        <FeaturedPrioritySection />
-        <PropertiesSection />
+        <FeaturedPrioritySection onOpenPopup={() => setIsPopupOpen(true)} />
+        <PropertiesSection onOpenPopup={() => setIsPopupOpen(true)} />
         <LocationsSection />
         <PropertyTypesSection />
-        <BudgetAreaSection />
+        <BudgetAreaSection onOpenPopup={() => setIsPopupOpen(true)} />
         <ContactSection />
 
         {/* FOOTER LEGAL */}

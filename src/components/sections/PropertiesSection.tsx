@@ -6,7 +6,11 @@ import { CommercialProperties } from '@/entities';
 import { Image } from '@/components/ui/image';
 import { MapPin, Maximize2, IndianRupee, ArrowRight } from 'lucide-react';
 
-export default function PropertiesSection() {
+interface PropertiesSectionProps {
+  onOpenPopup?: () => void;
+}
+
+export default function PropertiesSection({ onOpenPopup }: PropertiesSectionProps) {
   const [properties, setProperties] = useState<CommercialProperties[]>([])
   const [isLoading, setIsLoading] = useState(true);
 
@@ -158,7 +162,7 @@ function PropertyCard({ property, index }: { property: CommercialProperties; ind
         </div>
 
         {/* CTA Button */}
-        <button className="w-full mt-3 sm:mt-4 py-2 sm:py-3 bg-gray-100 text-foreground font-semibold rounded-lg hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-2 group-hover:bg-primary group-hover:text-white text-xs sm:text-sm">
+        <button onClick={onOpenPopup} className="w-full mt-3 sm:mt-4 py-2 sm:py-3 bg-gray-100 text-foreground font-semibold rounded-lg hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-2 group-hover:bg-primary group-hover:text-white text-xs sm:text-sm">
           Get Details
           <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
         </button>

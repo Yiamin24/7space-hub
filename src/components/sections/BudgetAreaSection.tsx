@@ -2,7 +2,11 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, TrendingUp, Target } from 'lucide-react';
 
-export default function BudgetAreaSection() {
+interface BudgetAreaSectionProps {
+  onOpenPopup?: () => void;
+}
+
+export default function BudgetAreaSection({ onOpenPopup }: BudgetAreaSectionProps) {
   const budgetRanges = [
     { label: '₹40,000 - ₹75,000', desc: 'Entry Level' },
     { label: '₹75,000 - ₹1.5 Lakh', desc: 'Mid Range' },
@@ -97,7 +101,7 @@ export default function BudgetAreaSection() {
             </div>
 
             <Button
-              onClick={() => window.open('https://wa.me/919876543210', '_blank')}
+              onClick={onOpenPopup}
               className="w-full bg-primary text-white hover:bg-primary/90 shadow-lg mt-4 text-sm sm:text-base"
               size="lg"
             >

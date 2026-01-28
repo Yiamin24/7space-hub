@@ -1,10 +1,14 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Phone, MessageCircle } from 'lucide-react';
+import { Menu, X, Phone, MessageCircle, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Image } from '@/components/ui/image';
 import { motion } from 'framer-motion';
 
-export default function Header() {
+interface HeaderProps {
+  onOpenPopup?: () => void;
+}
+
+export default function Header({ onOpenPopup }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -70,6 +74,14 @@ export default function Header() {
             {/* Desktop CTAs */}
             <div className="hidden lg:flex items-center space-x-2 md:space-x-3">
               <Button
+                size="sm"
+                onClick={onOpenPopup}
+                className="bg-primary text-white hover:bg-primary/90 text-xs md:text-sm"
+              >
+                <Search className="mr-1 md:mr-2 h-3 w-3 md:h-4 md:w-4" />
+                Inquire
+              </Button>
+              <Button
                 variant="outline"
                 size="sm"
                 onClick={handleCallClick}
@@ -122,6 +134,13 @@ export default function Header() {
             ))}
             <div className="flex flex-col space-y-2 sm:space-y-3 pt-3 sm:pt-4 border-t border-gray-200">
               <Button
+                onClick={onOpenPopup}
+                className="w-full bg-primary text-white text-sm sm:text-base"
+              >
+                <Search className="mr-2 h-4 w-4" />
+                Inquire Now
+              </Button>
+              <Button
                 variant="outline"
                 onClick={handleCallClick}
                 className="w-full border-primary text-primary text-sm sm:text-base"
@@ -144,8 +163,15 @@ export default function Header() {
       {/* Mobile Bottom CTA Bar */}
       <div className="fixed bottom-0 left-0 right-0 z-40 flex lg:hidden border-t border-gray-200 bg-white shadow-lg h-14 sm:h-16">
         <button
-          onClick={handleCallClick}
+          onClick={onOpenPopup}
           className="flex-1 flex items-center justify-center font-paragraph font-semibold text-primary border-r border-gray-200 hover:bg-gray-50 transition-colors text-xs sm:text-sm"
+        >
+          <Search className="mr-1 sm:mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+          Inquire
+        </button>
+        <button
+          onClick={handleCallClick}
+          className="flex-1 flex items-center justify-center font-paragraph font-semibold text-foreground border-r border-gray-200 hover:bg-gray-50 transition-colors text-xs sm:text-sm"
         >
           <Phone className="mr-1 sm:mr-2 h-4 w-4 sm:h-5 sm:w-5" />
           Call

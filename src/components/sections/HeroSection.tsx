@@ -2,9 +2,14 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { ArrowRight, Building2, IndianRupee, Maximize2, MessageCircle } from 'lucide-react';
+import { ArrowRight, Building2, IndianRupee, Maximize2, MessageCircle, Search } from 'lucide-react';
 
-export default function HeroSection({ isMobile }: { isMobile: boolean }) {
+interface HeroSectionProps {
+  isMobile: boolean;
+  onOpenPopup?: () => void;
+}
+
+export default function HeroSection({ isMobile, onOpenPopup }: HeroSectionProps) {
   const [location, setLocation] = useState('');
   const [carpetArea, setCarpetArea] = useState('');
   const [budget, setBudget] = useState('');
@@ -25,8 +30,7 @@ export default function HeroSection({ isMobile }: { isMobile: boolean }) {
   ];
 
   const handleGetOptions = () => {
-    const message = `Hi, I'm looking for a commercial office space in Pune.\\n\\nLocation: ${location || 'Any'}\\nCarpet Area: ${carpetArea || 'Any'}\\nBudget: ${budget || 'Any'}`;
-    window.open(`https://wa.me/919876543210?text=${encodeURIComponent(message)}`, '_blank');
+    onOpenPopup?.();
   };
 
   return (
@@ -107,8 +111,8 @@ export default function HeroSection({ isMobile }: { isMobile: boolean }) {
                 onClick={handleGetOptions}
                 className="w-full sm:w-auto bg-primary text-white hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all text-sm sm:text-base"
               >
-                <MessageCircle className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-                Get Options on WhatsApp
+                <Search className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                Find Your Space
               </Button>
             </motion.div>
           </motion.div>

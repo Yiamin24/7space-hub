@@ -3,7 +3,11 @@ import { Button } from '@/components/ui/button';
 import { Image } from '@/components/ui/image';
 import { MapPin, Building2, MessageCircle, Check } from 'lucide-react';
 
-export default function FeaturedPrioritySection() {
+interface FeaturedPrioritySectionProps {
+  onOpenPopup?: () => void;
+}
+
+export default function FeaturedPrioritySection({ onOpenPopup }: FeaturedPrioritySectionProps) {
   const features = [
     'Grand common lobby',
     'Ample parking',
@@ -118,11 +122,11 @@ export default function FeaturedPrioritySection() {
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
               <Button
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={onOpenPopup}
                 className="bg-primary text-white hover:bg-primary/90 shadow-lg text-sm sm:text-base"
                 size="lg"
               >
-                Enquire Now
+                Inquire Now
               </Button>
               <Button
                 onClick={() => window.open('https://wa.me/919876543210', '_blank')}
