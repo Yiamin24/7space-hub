@@ -63,44 +63,7 @@ export default function MaskedHeroSection() {
             </p>
           </motion.div>
 
-          {/* CTA Button */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.1, duration: 0.8 }}
-            className="mt-6 sm:mt-8 md:mt-12"
-          >
-            <a
-              href="#properties"
-              className="inline-block px-6 sm:px-8 py-2.5 sm:py-3 md:px-10 md:py-4 bg-white/10 backdrop-blur-md text-white font-paragraph font-semibold rounded-lg border border-white/30 hover:bg-white/20 hover:border-white/50 transition-all duration-300 text-xs sm:text-sm md:text-base"
-            >
-              Explore Properties
-            </a>
-          </motion.div>
-        </motion.div>
-      </div>
-
-      {/* Scroll indicator with enhanced animation - hidden on mobile */}
-      <motion.div
-        animate={{ y: [0, 12, 0] }}
-        transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-20 hidden sm:flex"
-      >
-        <div className="flex flex-col items-center gap-3">
-          <span className="text-white/70 text-xs md:text-sm font-paragraph tracking-widest uppercase">Scroll</span>
-          <svg
-            className="w-5 h-5 md:w-6 md:h-6 text-white/70 animate-pulse"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
+                    </svg>
         </div>
       </motion.div>
     </section>
