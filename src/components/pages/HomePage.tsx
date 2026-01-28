@@ -10,7 +10,6 @@ import PropertyTypesSection from '@/components/sections/PropertyTypesSection';
 import BudgetAreaSection from '@/components/sections/BudgetAreaSection';
 import ContactSection from '@/components/sections/ContactSection';
 import FeaturedPrioritySection from '@/components/sections/FeaturedPrioritySection';
-import MaskedHeroSection from '@/components/sections/MaskedHeroSection';
  
 export default function HomePage() {
   const [isMobile, setIsMobile] = useState(false);
@@ -72,11 +71,8 @@ export default function HomePage() {
       <Header />
 
       <main className="relative w-full overflow-hidden">
-        {/* MASKED HERO SECTION - Previous Hero */}
-        <MaskedHeroSection />
-
         {/* CINEMATIC HERO SECTION */}
-        <section className="relative w-full h-screen min-h-[600px] lg:min-h-[800px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-slate-50 to-white" style={{ display: 'none' }}>
+        <section className="relative w-full h-screen min-h-[600px] lg:min-h-[800px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-slate-50 to-white">
           {/* Subtle animated background elements */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <motion.div
