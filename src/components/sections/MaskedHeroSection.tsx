@@ -17,7 +17,7 @@ export default function MaskedHeroSection() {
       />
 
       {/* Gradient overlay for depth and text contrast */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/50" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-black/70" />
 
       {/* Text mask effect container */}
       <div className="relative z-10 flex items-center justify-center px-3 sm:px-4 py-16 sm:py-20 md:py-0 w-full max-w-full overflow-hidden">
@@ -37,7 +37,7 @@ export default function MaskedHeroSection() {
               backgroundClip: 'text',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
-              filter: 'drop-shadow(0 8px 32px rgba(0, 0, 0, 0.5))',
+              filter: 'drop-shadow(0 12px 48px rgba(0, 0, 0, 0.8)) brightness(1.3)',
               opacity: 1,
               wordBreak: 'break-word',
             }}
