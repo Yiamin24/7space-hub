@@ -46,21 +46,21 @@ export default function Header() {
           isScrolled ? 'bg-white border-b border-gray-200' : 'bg-white/98 backdrop-blur-sm border-b border-gray-100'
         }`}
       >
-        <div className="mx-auto max-w-[120rem] px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between lg:h-20">
+        <div className="mx-auto max-w-[120rem] px-3 sm:px-4 md:px-6 lg:px-8">
+          <div className="flex h-14 sm:h-16 md:h-20 items-center justify-between">
             {/* Logo */}
             <a href="#home" onClick={(e) => { e.preventDefault(); handleNavClick('#home'); }} className="flex items-center shrink-0">
-              <div className="font-heading font-bold text-xl lg:text-2xl text-primary">7Doors</div>
+              <div className="font-heading font-bold text-lg sm:text-xl md:text-2xl text-primary">7Doors</div>
             </a>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-8">
+            <nav className="hidden lg:flex items-center space-x-6 md:space-x-8">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-                  className="font-paragraph text-sm font-medium text-foreground transition-colors hover:text-primary"
+                  className="font-paragraph text-xs sm:text-sm font-medium text-foreground transition-colors hover:text-primary"
                 >
                   {link.label}
                 </a>
@@ -68,22 +68,22 @@ export default function Header() {
             </nav>
 
             {/* Desktop CTAs */}
-            <div className="hidden lg:flex items-center space-x-3">
+            <div className="hidden lg:flex items-center space-x-2 md:space-x-3">
               <Button
                 variant="outline"
                 size="sm"
                 onClick={handleCallClick}
-                className="border-primary text-primary hover:bg-primary hover:text-white"
+                className="border-primary text-primary hover:bg-primary hover:text-white text-xs md:text-sm"
               >
-                <Phone className="mr-2 h-4 w-4" />
+                <Phone className="mr-1 md:mr-2 h-3 w-3 md:h-4 md:w-4" />
                 Call
               </Button>
               <Button
                 size="sm"
                 onClick={handleWhatsAppClick}
-                className="bg-[#25D366] text-white hover:bg-[#20BA5A]"
+                className="bg-[#25D366] text-white hover:bg-[#20BA5A] text-xs md:text-sm"
               >
-                <MessageCircle className="mr-2 h-4 w-4" />
+                <MessageCircle className="mr-1 md:mr-2 h-3 w-3 md:h-4 md:w-4" />
                 WhatsApp
               </Button>
             </div>
@@ -94,7 +94,7 @@ export default function Header() {
               className="lg:hidden p-2 text-foreground"
               aria-label="Toggle menu"
             >
-              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMobileMenuOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6" />}
             </button>
           </div>
         </div>
@@ -107,31 +107,31 @@ export default function Header() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           className="fixed inset-0 z-30 bg-white lg:hidden" 
-          style={{ top: '64px' }}
+          style={{ top: '56px' }}
         >
-          <nav className="flex flex-col space-y-4 p-6">
+          <nav className="flex flex-col space-y-3 sm:space-y-4 p-4 sm:p-6">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-                className="font-paragraph text-lg font-medium text-foreground hover:text-primary transition-colors"
+                className="font-paragraph text-base sm:text-lg font-medium text-foreground hover:text-primary transition-colors"
               >
                 {link.label}
               </a>
             ))}
-            <div className="flex flex-col space-y-3 pt-4 border-t border-gray-200">
+            <div className="flex flex-col space-y-2 sm:space-y-3 pt-3 sm:pt-4 border-t border-gray-200">
               <Button
                 variant="outline"
                 onClick={handleCallClick}
-                className="w-full border-primary text-primary"
+                className="w-full border-primary text-primary text-sm sm:text-base"
               >
                 <Phone className="mr-2 h-4 w-4" />
                 Call Now
               </Button>
               <Button
                 onClick={handleWhatsAppClick}
-                className="w-full bg-[#25D366] text-white hover:bg-[#20BA5A]"
+                className="w-full bg-[#25D366] text-white hover:bg-[#20BA5A] text-sm sm:text-base"
               >
                 <MessageCircle className="mr-2 h-4 w-4" />
                 WhatsApp
@@ -142,19 +142,19 @@ export default function Header() {
       )}
 
       {/* Mobile Bottom CTA Bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 flex lg:hidden border-t border-gray-200 bg-white shadow-lg">
+      <div className="fixed bottom-0 left-0 right-0 z-40 flex lg:hidden border-t border-gray-200 bg-white shadow-lg h-14 sm:h-16">
         <button
           onClick={handleCallClick}
-          className="flex-1 flex items-center justify-center h-14 font-paragraph font-semibold text-primary border-r border-gray-200 hover:bg-gray-50 transition-colors"
+          className="flex-1 flex items-center justify-center font-paragraph font-semibold text-primary border-r border-gray-200 hover:bg-gray-50 transition-colors text-xs sm:text-sm"
         >
-          <Phone className="mr-2 h-5 w-5" />
+          <Phone className="mr-1 sm:mr-2 h-4 w-4 sm:h-5 sm:w-5" />
           Call
         </button>
         <button
           onClick={handleWhatsAppClick}
-          className="flex-1 flex items-center justify-center h-14 font-paragraph font-semibold text-[#25D366] hover:bg-gray-50 transition-colors"
+          className="flex-1 flex items-center justify-center font-paragraph font-semibold text-[#25D366] hover:bg-gray-50 transition-colors text-xs sm:text-sm"
         >
-          <MessageCircle className="mr-2 h-5 w-5" />
+          <MessageCircle className="mr-1 sm:mr-2 h-4 w-4 sm:h-5 sm:w-5" />
           WhatsApp
         </button>
       </div>

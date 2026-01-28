@@ -13,25 +13,25 @@ export default function PropertyTypesSection() {
   ];
 
   return (
-    <section id="types" className="py-12 lg:py-16 bg-white">
-      <div className="mx-auto max-w-[120rem] px-4 sm:px-6 lg:px-8">
+    <section id="types" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
+      <div className="mx-auto max-w-[120rem] px-3 sm:px-4 md:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto mb-12 lg:mb-16"
+          className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 md:mb-16"
         >
-          <h2 className="font-heading text-3xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">
             Property Types & Solutions
           </h2>
-          <p className="font-paragraph text-lg text-gray-600">
+          <p className="font-paragraph text-sm sm:text-base md:text-lg text-gray-600">
             Choose from 7 diverse office configurations tailored to your business requirements, budget, and operational needs.
           </p>
         </motion.div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
           {propertyTypes.map((type, i) => {
             const IconComponent = type.icon;
             return (
@@ -41,15 +41,15 @@ export default function PropertyTypesSection() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className="group bg-white p-6 lg:p-8 rounded-xl border border-gray-200 hover:border-primary hover:shadow-lg transition-all cursor-pointer hover:-translate-y-1"
+                className="group bg-white p-4 sm:p-6 md:p-8 rounded-lg sm:rounded-xl border border-gray-200 hover:border-primary hover:shadow-lg transition-all cursor-pointer hover:-translate-y-1"
               >
-                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
-                  <IconComponent className="w-7 h-7" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-3 sm:mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+                  <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />
                 </div>
-                <h4 className="font-heading font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                <h4 className="font-heading font-bold text-foreground mb-2 group-hover:text-primary transition-colors text-sm sm:text-base">
                   {type.label}
                 </h4>
-                <p className="text-sm text-gray-600 group-hover:text-gray-700 transition-colors">
+                <p className="text-xs sm:text-sm text-gray-600 group-hover:text-gray-700 transition-colors">
                   {type.desc}
                 </p>
               </motion.div>

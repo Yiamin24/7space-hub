@@ -41,28 +41,28 @@ export default function LocationsSection() {
   const displayLocations = locations.length > 0 ? locations : defaultLocations;
 
   return (
-    <section id="locations" className="py-12 lg:py-16 bg-white">
-      <div className="mx-auto max-w-[120rem] px-4 sm:px-6 lg:px-8">
+    <section id="locations" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
+      <div className="mx-auto max-w-[120rem] px-3 sm:px-4 md:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto mb-12 lg:mb-16"
+          className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 md:mb-16"
         >
-          <h2 className="font-heading text-3xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">
             Primary Focus Locations
           </h2>
-          <p className="font-paragraph text-lg text-gray-600">
+          <p className="font-paragraph text-sm sm:text-base md:text-lg text-gray-600">
             Explore office spaces in Pune's 7 most sought-after business districts with excellent connectivity, infrastructure, and business ecosystem.
           </p>
         </motion.div>
 
         {/* Locations Grid - Responsive */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
           {isLoading ? (
             Array.from({ length: 7 }).map((_, i) => (
-              <div key={i} className="h-64 bg-gray-200 rounded-xl animate-pulse" />
+              <div key={i} className="h-40 sm:h-48 md:h-56 lg:h-64 bg-gray-200 rounded-lg sm:rounded-xl animate-pulse" />
             ))
           ) : (
             displayLocations.map((location, i) => (
@@ -86,7 +86,7 @@ function LocationCard({ location, index }: { location: any; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ delay: index * 0.05 }}
-      className="group relative h-64 rounded-xl overflow-hidden cursor-pointer"
+      className="group relative h-40 sm:h-48 md:h-56 lg:h-64 rounded-lg sm:rounded-xl overflow-hidden cursor-pointer"
     >
       {/* Image */}
       <Image
@@ -99,14 +99,14 @@ function LocationCard({ location, index }: { location: any; index: number }) {
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
       {/* Content */}
-      <div className="absolute bottom-0 left-0 w-full p-6">
-        <h3 className="text-white font-heading text-2xl font-bold mb-2">
+      <div className="absolute bottom-0 left-0 w-full p-3 sm:p-4 md:p-6">
+        <h3 className="text-white font-heading text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">
           {location.locationName || location.name}
         </h3>
-        <div className="flex items-center text-white/80 text-sm group-hover:text-white transition-colors">
-          <MapPin className="w-4 h-4 mr-1" />
+        <div className="flex items-center text-white/80 text-xs sm:text-sm group-hover:text-white transition-colors">
+          <MapPin className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
           View Properties
-          <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+          <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-2 group-hover:translate-x-1 transition-transform" />
         </div>
       </div>
     </motion.div>

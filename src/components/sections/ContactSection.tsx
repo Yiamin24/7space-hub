@@ -73,30 +73,30 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-12 lg:py-16 bg-foreground text-white relative overflow-hidden">
+    <section id="contact" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-foreground text-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 skew-x-12 pointer-events-none" />
 
-      <div className="mx-auto max-w-[120rem] px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid gap-12 lg:gap-16 lg:grid-cols-2">
+      <div className="mx-auto max-w-[120rem] px-3 sm:px-4 md:px-6 lg:px-8 relative z-10">
+        <div className="grid gap-8 sm:gap-10 md:gap-12 lg:gap-16 lg:grid-cols-2">
           {/* Left: Info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-6 sm:space-y-8"
           >
             <div>
-              <h2 className="font-heading text-4xl lg:text-5xl font-bold mb-6">
+              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
                 Find Your Ideal Office Space
               </h2>
-              <p className="text-lg text-gray-300 mb-8 max-w-md leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-6 sm:mb-8 max-w-md leading-relaxed">
                 Share your requirements and we'll connect you with verified office spaces that match your needs. Fast response, expert guidance, and site visit assistance.
               </p>
             </div>
 
             {/* Contact Info Cards */}
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               <motion.a
                 href="tel:+919876543210"
                 whileHover={{ x: 10 }}
