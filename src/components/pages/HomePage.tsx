@@ -40,15 +40,9 @@ export default function HomePage() {
     window.addEventListener('resize', checkMobile);
     window.addEventListener('scroll', handleScroll);
     
-    // Open popup on page load
-    const timer = setTimeout(() => {
-      setIsPopupOpen(true);
-    }, 500);
-    
     return () => {
       window.removeEventListener('resize', checkMobile);
       window.removeEventListener('scroll', handleScroll);
-      clearTimeout(timer);
     };
   }, []);
 
