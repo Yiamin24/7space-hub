@@ -103,35 +103,35 @@ export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-8"
+            className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 md:p-6"
           >
-            <div className="w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-white rounded-2xl shadow-2xl">
+            <div className="w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-white rounded-xl sm:rounded-2xl shadow-2xl">
               {/* Header */}
-              <div className="sticky top-0 bg-white border-b border-gray-100 p-4 sm:p-6 flex items-center justify-between">
-                <div>
-                  <h2 className="font-heading text-xl sm:text-2xl font-bold text-foreground">
+              <div className="sticky top-0 bg-white border-b border-gray-100 p-3 sm:p-4 md:p-6 flex items-center justify-between gap-2">
+                <div className="min-w-0">
+                  <h2 className="font-heading text-lg sm:text-xl md:text-2xl font-bold text-foreground truncate">
                     Find Your Ideal Office Space
                   </h2>
-                  <p className="text-xs sm:text-sm text-gray-500 mt-1">
+                  <p className="text-xs text-gray-500 mt-0.5 sm:mt-1">
                     Share your requirements and we'll connect you with verified spaces
                   </p>
                 </div>
                 <button
                   onClick={onClose}
-                  className="flex-shrink-0 p-2 hover:bg-gray-100 rounded-lg transition-colors ml-4"
+                  className="flex-shrink-0 p-1.5 sm:p-2 hover:bg-gray-100 rounded-lg transition-colors"
                   aria-label="Close"
                 >
-                  <X className="w-5 h-5 text-gray-500" />
+                  <X className="w-4 h-4 sm:w-5 sm:h-5 text-gray-500" />
                 </button>
               </div>
 
               {/* Form Content */}
-              <div className="p-4 sm:p-6 md:p-8">
-                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+              <div className="p-3 sm:p-4 md:p-6">
+                <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
                   {/* Name & Phone */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label className="text-sm font-bold text-foreground">Name *</label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                    <div className="space-y-1 sm:space-y-2">
+                      <label className="text-xs sm:text-sm font-bold text-foreground">Name *</label>
                       <Input
                         type="text"
                         name="name"
@@ -139,11 +139,11 @@ export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
                         onChange={handleInputChange}
                         placeholder="John Doe"
                         required
-                        className="border-gray-300"
+                        className="border-gray-300 text-sm"
                       />
                     </div>
-                    <div className="space-y-2">
-                      <label className="text-sm font-bold text-foreground">Phone *</label>
+                    <div className="space-y-1 sm:space-y-2">
+                      <label className="text-xs sm:text-sm font-bold text-foreground">Phone *</label>
                       <Input
                         type="tel"
                         name="phone"
@@ -151,14 +151,14 @@ export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
                         onChange={handleInputChange}
                         placeholder="+91 98765 43210"
                         required
-                        className="border-gray-300"
+                        className="border-gray-300 text-sm"
                       />
                     </div>
                   </div>
 
                   {/* Email */}
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-foreground">Email *</label>
+                  <div className="space-y-1 sm:space-y-2">
+                    <label className="text-xs sm:text-sm font-bold text-foreground">Email *</label>
                     <Input
                       type="email"
                       name="email"
@@ -166,16 +166,16 @@ export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
                       onChange={handleInputChange}
                       placeholder="john@company.com"
                       required
-                      className="border-gray-300"
+                      className="border-gray-300 text-sm"
                     />
                   </div>
 
                   {/* Location & Area */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label className="text-sm font-bold text-foreground">Preferred Location</label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                    <div className="space-y-1 sm:space-y-2">
+                      <label className="text-xs sm:text-sm font-bold text-foreground">Preferred Location</label>
                       <Select value={formData.preferredLocation} onValueChange={(value) => handleSelectChange('preferredLocation', value)}>
-                        <SelectTrigger className="border-gray-300">
+                        <SelectTrigger className="border-gray-300 text-sm">
                           <SelectValue placeholder="Select Location" />
                         </SelectTrigger>
                         <SelectContent>
@@ -187,10 +187,10 @@ export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
                         </SelectContent>
                       </Select>
                     </div>
-                    <div className="space-y-2">
-                      <label className="text-sm font-bold text-foreground">Carpet Area</label>
+                    <div className="space-y-1 sm:space-y-2">
+                      <label className="text-xs sm:text-sm font-bold text-foreground">Carpet Area</label>
                       <Select value={formData.carpetArea} onValueChange={(value) => handleSelectChange('carpetArea', value)}>
-                        <SelectTrigger className="border-gray-300">
+                        <SelectTrigger className="border-gray-300 text-sm">
                           <SelectValue placeholder="Select Area" />
                         </SelectTrigger>
                         <SelectContent>
@@ -205,11 +205,11 @@ export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
                   </div>
 
                   {/* Budget & Furnishing */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label className="text-sm font-bold text-foreground">Budget</label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                    <div className="space-y-1 sm:space-y-2">
+                      <label className="text-xs sm:text-sm font-bold text-foreground">Budget</label>
                       <Select value={formData.budget} onValueChange={(value) => handleSelectChange('budget', value)}>
-                        <SelectTrigger className="border-gray-300">
+                        <SelectTrigger className="border-gray-300 text-sm">
                           <SelectValue placeholder="Select Budget" />
                         </SelectTrigger>
                         <SelectContent>
@@ -221,10 +221,10 @@ export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
                         </SelectContent>
                       </Select>
                     </div>
-                    <div className="space-y-2">
-                      <label className="text-sm font-bold text-foreground">Furnishing Type</label>
+                    <div className="space-y-1 sm:space-y-2">
+                      <label className="text-xs sm:text-sm font-bold text-foreground">Furnishing Type</label>
                       <Select value={formData.furnishingType} onValueChange={(value) => handleSelectChange('furnishingType', value)}>
-                        <SelectTrigger className="border-gray-300">
+                        <SelectTrigger className="border-gray-300 text-sm">
                           <SelectValue placeholder="Select Type" />
                         </SelectTrigger>
                         <SelectContent>
@@ -239,10 +239,10 @@ export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
                   </div>
 
                   {/* Timeline */}
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-foreground">Move-in Timeline</label>
+                  <div className="space-y-1 sm:space-y-2">
+                    <label className="text-xs sm:text-sm font-bold text-foreground">Move-in Timeline</label>
                     <Select value={formData.moveInTimeline} onValueChange={(value) => handleSelectChange('moveInTimeline', value)}>
-                      <SelectTrigger className="border-gray-300">
+                      <SelectTrigger className="border-gray-300 text-sm">
                         <SelectValue placeholder="Select Timeline" />
                       </SelectTrigger>
                       <SelectContent>
@@ -259,11 +259,11 @@ export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-primary text-white hover:bg-primary/90 mt-6 sm:mt-8 shadow-lg"
+                    className="w-full bg-primary text-white hover:bg-primary/90 mt-4 sm:mt-6 shadow-lg text-sm sm:text-base"
                     size="lg"
                   >
                     {isSubmitting ? 'Submitting...' : 'Get Matching Offices'}
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                    <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                   </Button>
 
                   {/* Status Messages */}
@@ -271,7 +271,7 @@ export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
                     <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      className="p-4 bg-green-50 border border-green-200 rounded-lg text-green-700 text-sm font-medium text-center"
+                      className="p-3 sm:p-4 bg-green-50 border border-green-200 rounded-lg text-green-700 text-xs sm:text-sm font-medium text-center"
                     >
                       ✓ Thank you! We'll contact you soon with matching options.
                     </motion.div>
@@ -280,7 +280,7 @@ export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
                     <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm font-medium text-center"
+                      className="p-3 sm:p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 text-xs sm:text-sm font-medium text-center"
                     >
                       ✗ Something went wrong. Please try again.
                     </motion.div>

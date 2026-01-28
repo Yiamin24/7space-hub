@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 export default function MaskedHeroSection() {
   return (
-    <section className="relative w-full min-h-screen md:h-screen overflow-hidden bg-black flex items-center justify-center">
+    <section className="relative w-full min-h-screen md:h-screen overflow-hidden bg-black flex items-center justify-center\">
       {/* Full-screen background image with parallax effect */}
       <motion.div
         className="absolute inset-0 w-full h-full bg-cover bg-center"
@@ -20,16 +20,16 @@ export default function MaskedHeroSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/50" />
 
       {/* Text mask effect container */}
-      <div className="relative z-10 flex items-center justify-center px-4 py-12 md:py-0 w-full">
+      <div className="relative z-10 flex items-center justify-center px-3 sm:px-4 py-16 sm:py-20 md:py-0 w-full max-w-full overflow-hidden">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: 'easeOut' }}
-          className="relative text-center max-w-full"
+          className="relative text-center max-w-full w-full"
         >
           {/* Main text with image mask effect */}
           <div
-            className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-[220px] font-heading font-bold text-center leading-none tracking-tighter"
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-heading font-bold text-center leading-none tracking-tighter break-words"
             style={{
               backgroundImage: 'url(https://static.wixstatic.com/media/cef78c_f6fc7a3d96ae4a5ebf0e0fb5337949f0~mv2.png?originWidth=1920&originHeight=1024)',
               backgroundSize: 'cover',
@@ -39,6 +39,7 @@ export default function MaskedHeroSection() {
               WebkitTextFillColor: 'transparent',
               filter: 'drop-shadow(0 8px 32px rgba(0, 0, 0, 0.5))',
               opacity: 1,
+              wordBreak: 'break-word',
             }}
           >
             7 Doors
@@ -49,9 +50,9 @@ export default function MaskedHeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.8 }}
-            className="mt-4 sm:mt-6 md:mt-10"
+            className="mt-3 sm:mt-6 md:mt-10"
           >
-            <p className="text-white text-center text-sm sm:text-base md:text-lg lg:text-2xl font-paragraph tracking-wide font-medium px-2">
+            <p className="text-white text-center text-xs sm:text-sm md:text-lg lg:text-2xl font-paragraph tracking-wide font-medium px-2 break-words">
               Premium Commercial Spaces Across Pune
             </p>
           </motion.div>
@@ -61,11 +62,11 @@ export default function MaskedHeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.1, duration: 0.8 }}
-            className="mt-6 sm:mt-8 md:mt-12"
+            className="mt-4 sm:mt-8 md:mt-12"
           >
             <a
               href="#properties"
-              className="inline-block px-6 sm:px-8 py-2.5 sm:py-3 md:px-10 md:py-4 bg-white/10 backdrop-blur-md text-white font-paragraph font-semibold rounded-lg border border-white/30 hover:bg-white/20 hover:border-white/50 transition-all duration-300 text-xs sm:text-sm md:text-base"
+              className="inline-block px-4 sm:px-8 py-2 sm:py-3 md:px-10 md:py-4 bg-white/10 backdrop-blur-md text-white font-paragraph font-semibold rounded-lg border border-white/30 hover:bg-white/20 hover:border-white/50 transition-all duration-300 text-xs sm:text-sm md:text-base whitespace-nowrap"
             >
               Explore Properties
             </a>

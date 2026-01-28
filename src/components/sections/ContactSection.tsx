@@ -75,39 +75,39 @@ export default function ContactSection() {
   return (
     <section id="contact" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-foreground text-white relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 skew-x-12 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-full sm:w-1/2 h-full bg-primary/5 skew-x-12 pointer-events-none" />
 
       <div className="mx-auto max-w-[120rem] px-3 sm:px-4 md:px-6 lg:px-8 relative z-10">
-        <div className="grid gap-8 sm:gap-10 md:gap-12 lg:gap-16 lg:grid-cols-2">
+        <div className="grid gap-6 sm:gap-8 md:gap-10 lg:gap-16 lg:grid-cols-2">
           {/* Left: Info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-6 sm:space-y-8"
+            className="space-y-4 sm:space-y-6 md:space-y-8"
           >
             <div>
-              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+              <h2 className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">
                 Find Your Ideal Office Space
               </h2>
-              <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-6 sm:mb-8 max-w-md leading-relaxed">
+              <p className="text-xs sm:text-sm md:text-base text-gray-300 mb-4 sm:mb-6 leading-relaxed">
                 Share your requirements and we'll connect you with verified office spaces that match your needs. Fast response, expert guidance, and site visit assistance.
               </p>
             </div>
 
             {/* Contact Info Cards */}
-            <div className="space-y-4 sm:space-y-6">
+            <div className="space-y-3 sm:space-y-4">
               <motion.a
                 href="tel:+919876543210"
                 whileHover={{ x: 10 }}
-                className="flex items-center gap-4 p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
+                className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
               >
-                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary shrink-0">
-                  <Phone className="w-6 h-6" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary shrink-0">
+                  <Phone className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
-                <div>
-                  <div className="text-sm text-gray-400">Call Us Directly</div>
-                  <div className="text-xl font-bold">+91 98765 43210</div>
+                <div className="min-w-0">
+                  <div className="text-xs sm:text-sm text-gray-400">Call Us Directly</div>
+                  <div className="text-base sm:text-lg font-bold truncate">+91 98765 43210</div>
                 </div>
               </motion.a>
 
@@ -116,28 +116,28 @@ export default function ContactSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ x: 10 }}
-                className="flex items-center gap-4 p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
+                className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
               >
-                <div className="w-12 h-12 rounded-full bg-[#25D366]/20 flex items-center justify-center text-[#25D366] shrink-0">
-                  <MessageCircle className="w-6 h-6" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#25D366]/20 flex items-center justify-center text-[#25D366] shrink-0">
+                  <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
-                <div>
-                  <div className="text-sm text-gray-400">WhatsApp Support</div>
-                  <div className="text-xl font-bold">Chat Now</div>
+                <div className="min-w-0">
+                  <div className="text-xs sm:text-sm text-gray-400">WhatsApp Support</div>
+                  <div className="text-base sm:text-lg font-bold">Chat Now</div>
                 </div>
               </motion.a>
 
               <motion.a
                 href="mailto:info@7doors.in"
                 whileHover={{ x: 10 }}
-                className="flex items-center gap-4 p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
+                className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
               >
-                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary shrink-0">
-                  <Mail className="w-6 h-6" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary shrink-0">
+                  <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
-                <div>
-                  <div className="text-sm text-gray-400">Email Us</div>
-                  <div className="text-xl font-bold">info@7doors.in</div>
+                <div className="min-w-0">
+                  <div className="text-xs sm:text-sm text-gray-400">Email Us</div>
+                  <div className="text-base sm:text-lg font-bold truncate">info@7doors.in</div>
                 </div>
               </motion.a>
             </div>
@@ -148,15 +148,15 @@ export default function ContactSection() {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-white text-foreground p-8 lg:p-10 rounded-2xl shadow-2xl"
+            className="bg-white text-foreground p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl shadow-2xl"
           >
-            <h3 className="font-heading text-2xl font-bold mb-6">Send Your Requirements</h3>
+            <h3 className="font-heading text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-6">Send Your Requirements</h3>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
               {/* Name & Phone */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-foreground">Name</label>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                <div className="space-y-1 sm:space-y-2">
+                  <label className="text-xs sm:text-sm font-bold text-foreground">Name</label>
                   <Input
                     type="text"
                     name="name"
@@ -164,11 +164,11 @@ export default function ContactSection() {
                     onChange={handleInputChange}
                     placeholder="John Doe"
                     required
-                    className="border-gray-300"
+                    className="border-gray-300 text-sm"
                   />
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-foreground">Phone</label>
+                <div className="space-y-1 sm:space-y-2">
+                  <label className="text-xs sm:text-sm font-bold text-foreground">Phone</label>
                   <Input
                     type="tel"
                     name="phone"
@@ -176,14 +176,14 @@ export default function ContactSection() {
                     onChange={handleInputChange}
                     placeholder="+91 98765 43210"
                     required
-                    className="border-gray-300"
+                    className="border-gray-300 text-sm"
                   />
                 </div>
               </div>
 
               {/* Email */}
-              <div className="space-y-2">
-                <label className="text-sm font-bold text-foreground">Email</label>
+              <div className="space-y-1 sm:space-y-2">
+                <label className="text-xs sm:text-sm font-bold text-foreground">Email</label>
                 <Input
                   type="email"
                   name="email"
@@ -191,16 +191,16 @@ export default function ContactSection() {
                   onChange={handleInputChange}
                   placeholder="john@company.com"
                   required
-                  className="border-gray-300"
+                  className="border-gray-300 text-sm"
                 />
               </div>
 
               {/* Location & Area */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-foreground">Preferred Location</label>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                <div className="space-y-1 sm:space-y-2">
+                  <label className="text-xs sm:text-sm font-bold text-foreground">Preferred Location</label>
                   <Select value={formData.preferredLocation} onValueChange={(value) => handleSelectChange('preferredLocation', value)}>
-                    <SelectTrigger className="border-gray-300">
+                    <SelectTrigger className="border-gray-300 text-sm">
                       <SelectValue placeholder="Select Location" />
                     </SelectTrigger>
                     <SelectContent>
@@ -212,10 +212,10 @@ export default function ContactSection() {
                     </SelectContent>
                   </Select>
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-foreground">Carpet Area</label>
+                <div className="space-y-1 sm:space-y-2">
+                  <label className="text-xs sm:text-sm font-bold text-foreground">Carpet Area</label>
                   <Select value={formData.carpetArea} onValueChange={(value) => handleSelectChange('carpetArea', value)}>
-                    <SelectTrigger className="border-gray-300">
+                    <SelectTrigger className="border-gray-300 text-sm">
                       <SelectValue placeholder="Select Area" />
                     </SelectTrigger>
                     <SelectContent>
@@ -230,11 +230,11 @@ export default function ContactSection() {
               </div>
 
               {/* Budget & Timeline */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-foreground">Budget</label>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                <div className="space-y-1 sm:space-y-2">
+                  <label className="text-xs sm:text-sm font-bold text-foreground">Budget</label>
                   <Select value={formData.budget} onValueChange={(value) => handleSelectChange('budget', value)}>
-                    <SelectTrigger className="border-gray-300">
+                    <SelectTrigger className="border-gray-300 text-sm">
                       <SelectValue placeholder="Select Budget" />
                     </SelectTrigger>
                     <SelectContent>
@@ -246,10 +246,10 @@ export default function ContactSection() {
                     </SelectContent>
                   </Select>
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-foreground">Move-in Timeline</label>
+                <div className="space-y-1 sm:space-y-2">
+                  <label className="text-xs sm:text-sm font-bold text-foreground">Move-in Timeline</label>
                   <Select value={formData.moveInTimeline} onValueChange={(value) => handleSelectChange('moveInTimeline', value)}>
-                    <SelectTrigger className="border-gray-300">
+                    <SelectTrigger className="border-gray-300 text-sm">
                       <SelectValue placeholder="Select Timeline" />
                     </SelectTrigger>
                     <SelectContent>
@@ -267,11 +267,11 @@ export default function ContactSection() {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-primary text-white hover:bg-primary/90 mt-6 shadow-lg"
+                className="w-full bg-primary text-white hover:bg-primary/90 mt-4 sm:mt-6 shadow-lg text-sm sm:text-base"
                 size="lg"
               >
                 {isSubmitting ? 'Submitting...' : 'Get Matching Offices'}
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
               </Button>
 
               {/* Status Messages */}
@@ -279,7 +279,7 @@ export default function ContactSection() {
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="p-4 bg-green-50 border border-green-200 rounded-lg text-green-700 text-sm font-medium"
+                  className="p-3 sm:p-4 bg-green-50 border border-green-200 rounded-lg text-green-700 text-xs sm:text-sm font-medium"
                 >
                   ✓ Thank you! We'll contact you soon with matching options.
                 </motion.div>
@@ -288,7 +288,7 @@ export default function ContactSection() {
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm font-medium"
+                  className="p-3 sm:p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 text-xs sm:text-sm font-medium"
                 >
                   ✗ Something went wrong. Please try again.
                 </motion.div>
