@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 export default function MaskedHeroSection() {
   return (
-    <section className="relative w-full min-h-screen md:h-screen overflow-hidden bg-black flex items-center justify-center\">
+    <section className="relative w-full min-h-[60vh] md:h-screen overflow-hidden bg-black flex items-center justify-center">
       {/* Full-screen background image with parallax effect */}
       <motion.div
         className="absolute inset-0 w-full h-full bg-cover bg-center"
