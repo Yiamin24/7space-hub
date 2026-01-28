@@ -12,6 +12,7 @@ import PropertyTypesSection from '@/components/sections/PropertyTypesSection';
 import BudgetAreaSection from '@/components/sections/BudgetAreaSection';
 import ContactSection from '@/components/sections/ContactSection';
 import FeaturedPrioritySection from '@/components/sections/FeaturedPrioritySection';
+import PopupForm from '@/components/PopupForm';
  
 export default function HomePage() {
   const [isMobile, setIsMobile] = useState(false);
@@ -19,6 +20,7 @@ export default function HomePage() {
   const [location, setLocation] = useState('');
   const [carpetArea, setCarpetArea] = useState('');
   const [budget, setBudget] = useState('');
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
   
   // Modern Scroll Progress Indicator
   const { scrollYProgress } = useScroll();
@@ -38,9 +40,15 @@ export default function HomePage() {
     window.addEventListener('resize', checkMobile);
     window.addEventListener('scroll', handleScroll);
     
+    // Open popup on page load
+    const timer = setTimeout(() => {
+      setIsPopupOpen(true);
+    }, 500);
+    
     return () => {
       window.removeEventListener('resize', checkMobile);
       window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timer);
     };
   }, []);
 
@@ -156,6 +164,9 @@ export default function HomePage() {
             animate={{ y: 0 }}
             className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] z-50 flex gap-3 p-2 bg-white/90 backdrop-blur-2xl border border-white/40 shadow-2xl rounded-2xl"
           >
+            <button onClick={() => setIsPopupOpen(true)} className="flex-1 bg-primary text-white h-12 rounded-xl flex items-center justify-center font-bold gap-2 text-sm active:scale-95 transition-transform">
+              <Search className="w-4 h-4" /> Inquire
+            </button>
             <a href="tel:+919876543210" className="flex-1 bg-foreground text-white h-12 rounded-xl flex items-center justify-center font-bold gap-2 text-sm active:scale-95 transition-transform">
               <Phone className="w-4 h-4" /> Call
             </a>
@@ -185,6 +196,16 @@ export default function HomePage() {
             </motion.button>
             
             <motion.button
+              onClick={() => setIsPopupOpen(true)}
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex h-16 w-16 items-center justify-center rounded-full bg-primary text-white shadow-2xl transition-all"
+              aria-label="Open inquiry form"
+            >
+              <Search className="h-8 w-8" />
+            </motion.button>
+
+            <motion.button
               onClick={handleWhatsAppClick}
               whileHover={{ scale: 1.1, rotate: 5 }}
               whileTap={{ scale: 0.95 }}
@@ -196,6 +217,9 @@ export default function HomePage() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Popup Form */}
+      <PopupForm isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
     </div>
   );
 }
