@@ -41,7 +41,7 @@ export default function FeaturedPrioritySection({ onOpenPopup }: FeaturedPriorit
           >
             <div className="relative h-64 sm:h-80 md:h-96 lg:h-[400px] xl:h-[500px] rounded-lg sm:rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="https://static.wixstatic.com/media/cef78c_efe29874903f4b278777d962cfe87d07~mv2.png?originWidth=896&originHeight=448"
+                src="https://static.wixstatic.com/media/cef78c_1661e65c2d7c4a809c924854bbfa6d6a~mv2.png?originWidth=896&originHeight=448"
                 alt="Yashada Business Zone"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
