@@ -3,10 +3,9 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Card } from '@/components/ui/card';
+import { Phone, MessageCircle, Mail, MapPin, ArrowRight } from 'lucide-react';
 import { BaseCrudService } from '@/integrations';
 import { Leads } from '@/entities';
-import { CheckCircle2, Send } from 'lucide-react';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -16,37 +15,29 @@ export default function ContactSection() {
     preferredLocation: '',
     carpetArea: '',
     budget: '',
-    furnishingType: '',
     moveInTimeline: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const locations = ['Baner', 'Balewadi', 'Wakad', 'Aundh', 'Hinjewadi', 'PCMC', 'Pashan'];
-  const carpetAreas = ['300-600 sq.ft', '600-1000 sq.ft', '1000-1800 sq.ft', 'Above 1800 sq.ft'];
-  const budgets = [
-    '₹40,000 - ₹75,000',
-    '₹75,000 - ₹1,20,000',
-    '₹1,20,000 - ₹2,00,000',
-    '₹2,00,000 - ₹3,00,000',
-    'Above ₹3,00,000',
-  ];
-  const furnishingTypes = ['Plug & Play', 'Semi-Furnished', 'Bare Shell', 'Warm Shell'];
-  const timelines = ['Immediate', 'Within 1 month', '1-3 months', '3-6 months', 'Flexible'];
+  const carpetAreas = ['300-600', '600-1000', '1000-1800', '1800+'];
+  const budgets = ['₹40k-₹75k', '₹75k-₹1.2L', '₹1.2L-₹2L', '₹2L-₹3L', '₹3L+'];
+  const timelines = ['Immediate', 'Within 1 Month', '1-3 Months', '3+ Months'];
 
-  const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSelectChange = (name: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!formData.name || !formData.phone) {
-      alert('Please fill in at least your name and phone number');
-      return;
-    }
-
     setIsSubmitting(true);
+    setSubmitStatus('idle');
 
     try {
       await BaseCrudService.create<Leads>('leads', {
@@ -57,11 +48,10 @@ export default function ContactSection() {
         preferredLocation: formData.preferredLocation,
         carpetArea: formData.carpetArea,
         budget: formData.budget,
-        furnishingType: formData.furnishingType,
         moveInTimeline: formData.moveInTimeline,
       });
 
-      setIsSubmitted(true);
+      setSubmitStatus('success');
       setFormData({
         name: '',
         phone: '',
@@ -69,234 +59,244 @@ export default function ContactSection() {
         preferredLocation: '',
         carpetArea: '',
         budget: '',
-        furnishingType: '',
         moveInTimeline: '',
       });
 
-      setTimeout(() => {
-        setIsSubmitted(false);
-      }, 5000);
+      setTimeout(() => setSubmitStatus('idle'), 3000);
     } catch (error) {
-      alert('Failed to submit. Please try again or contact us directly.');
+      console.error('Error submitting form:', error);
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus('idle'), 3000);
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const handleWhatsAppSubmit = () => {
-    const message = `Hi, I'm interested in commercial office spaces in Pune.\n\nName: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nLocation: ${formData.preferredLocation || 'Any'}\nCarpet Area: ${formData.carpetArea || 'Any'}\nBudget: ${formData.budget || 'Any'}\nFurnishing: ${formData.furnishingType || 'Any'}\nMove-in: ${formData.moveInTimeline || 'Flexible'}`;
-    window.open(`https://wa.me/919876543210?text=${encodeURIComponent(message)}`, '_blank');
-  };
-
   return (
-    <section id="contact" className="py-16 lg:py-24 bg-background">
-      <div className="mx-auto max-w-[120rem] px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center space-y-4 mb-12"
-        >
-          <h2 className="font-heading text-3xl lg:text-5xl font-bold text-foreground">
-            Get Available Options Quickly
-          </h2>
-          <p className="font-paragraph text-lg text-[-soft -graphite] max-w-3xl mx-auto">
-            Share your requirements and we'll connect you with the best matching properties
-          </p>
-        </motion.div>
+    <section id="contact" className="py-16 lg:py-24 bg-foreground text-white relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 skew-x-12 pointer-events-none" />
 
-        <div className="max-w-4xl mx-auto">
+      <div className="mx-auto max-w-[120rem] px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid gap-12 lg:gap-16 lg:grid-cols-2">
+          {/* Left: Info */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            className="space-y-8"
           >
-            <Card className="p-6 lg:p-10">
-              {isSubmitted ? (
-                <div className="text-center py-12 space-y-4">
-                  <div className="flex justify-center">
-                    <div className="rounded-full bg-green-100 p-4">
-                      <CheckCircle2 className="h-12 w-12 text-green-600" />
-                    </div>
-                  </div>
-                  <h3 className="font-heading text-2xl font-semibold text-foreground">
-                    Thank You!
-                  </h3>
-                  <p className="font-paragraph text-[-soft -graphite]">
-                    We've received your requirements and will get back to you shortly with matching options.
-                  </p>
+            <div>
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/20 text-primary font-semibold text-sm mb-4">
+                📞 Contact Us
+              </div>
+              <h2 className="font-heading text-4xl lg:text-5xl font-bold mt-4 mb-6">
+                Get Available Options Quickly
+              </h2>
+              <p className="text-lg text-gray-300 mb-8 max-w-md leading-relaxed">
+                Verified options • Fast response • Site visit assistance. Fill the form to get a curated list of properties.
+              </p>
+            </div>
+
+            {/* Contact Info Cards */}
+            <div className="space-y-6">
+              <motion.a
+                href="tel:+919876543210"
+                whileHover={{ x: 10 }}
+                className="flex items-center gap-4 p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
+              >
+                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary shrink-0">
+                  <Phone className="w-6 h-6" />
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid gap-6 sm:grid-cols-2">
-                    <div>
-                      <label className="font-paragraph text-sm font-medium text-foreground mb-2 block">
-                        Name *
-                      </label>
-                      <Input
-                        type="text"
-                        value={formData.name}
-                        onChange={(e) => handleInputChange('name', e.target.value)}
-                        placeholder="Your full name"
-                        required
-                      />
-                    </div>
+                <div>
+                  <div className="text-sm text-gray-400">Call Us Directly</div>
+                  <div className="text-xl font-bold">+91 98765 43210</div>
+                </div>
+              </motion.a>
 
-                    <div>
-                      <label className="font-paragraph text-sm font-medium text-foreground mb-2 block">
-                        Phone *
-                      </label>
-                      <Input
-                        type="tel"
-                        value={formData.phone}
-                        onChange={(e) => handleInputChange('phone', e.target.value)}
-                        placeholder="+91 98765 43210"
-                        required
-                      />
-                    </div>
+              <motion.a
+                href="https://wa.me/919876543210"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ x: 10 }}
+                className="flex items-center gap-4 p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
+              >
+                <div className="w-12 h-12 rounded-full bg-[#25D366]/20 flex items-center justify-center text-[#25D366] shrink-0">
+                  <MessageCircle className="w-6 h-6" />
+                </div>
+                <div>
+                  <div className="text-sm text-gray-400">WhatsApp Support</div>
+                  <div className="text-xl font-bold">Chat Now</div>
+                </div>
+              </motion.a>
 
-                    <div>
-                      <label className="font-paragraph text-sm font-medium text-foreground mb-2 block">
-                        Email
-                      </label>
-                      <Input
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => handleInputChange('email', e.target.value)}
-                        placeholder="your.email@example.com"
-                      />
-                    </div>
+              <motion.a
+                href="mailto:info@7doors.in"
+                whileHover={{ x: 10 }}
+                className="flex items-center gap-4 p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
+              >
+                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary shrink-0">
+                  <Mail className="w-6 h-6" />
+                </div>
+                <div>
+                  <div className="text-sm text-gray-400">Email Us</div>
+                  <div className="text-xl font-bold">info@7doors.in</div>
+                </div>
+              </motion.a>
+            </div>
+          </motion.div>
 
-                    <div>
-                      <label className="font-paragraph text-sm font-medium text-foreground mb-2 block">
-                        Preferred Location
-                      </label>
-                      <Select value={formData.preferredLocation} onValueChange={(value) => handleInputChange('preferredLocation', value)}>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select location" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {locations.map((loc) => (
-                            <SelectItem key={loc} value={loc}>
-                              {loc}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
+          {/* Right: Form */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="bg-white text-foreground p-8 lg:p-10 rounded-2xl shadow-2xl"
+          >
+            <h3 className="font-heading text-2xl font-bold mb-6">Send Your Requirements</h3>
 
-                    <div>
-                      <label className="font-paragraph text-sm font-medium text-foreground mb-2 block">
-                        Carpet Area
-                      </label>
-                      <Select value={formData.carpetArea} onValueChange={(value) => handleInputChange('carpetArea', value)}>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select carpet area" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {carpetAreas.map((area) => (
-                            <SelectItem key={area} value={area}>
-                              {area}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              {/* Name & Phone */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <label className="text-sm font-bold text-foreground">Name</label>
+                  <Input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    placeholder="John Doe"
+                    required
+                    className="border-gray-300"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-bold text-foreground">Phone</label>
+                  <Input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    placeholder="+91 98765 43210"
+                    required
+                    className="border-gray-300"
+                  />
+                </div>
+              </div>
 
-                    <div>
-                      <label className="font-paragraph text-sm font-medium text-foreground mb-2 block">
-                        Budget
-                      </label>
-                      <Select value={formData.budget} onValueChange={(value) => handleInputChange('budget', value)}>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select budget" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {budgets.map((budget) => (
-                            <SelectItem key={budget} value={budget}>
-                              {budget}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
+              {/* Email */}
+              <div className="space-y-2">
+                <label className="text-sm font-bold text-foreground">Email</label>
+                <Input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  placeholder="john@company.com"
+                  required
+                  className="border-gray-300"
+                />
+              </div>
 
-                    <div>
-                      <label className="font-paragraph text-sm font-medium text-foreground mb-2 block">
-                        Furnishing Type
-                      </label>
-                      <Select value={formData.furnishingType} onValueChange={(value) => handleInputChange('furnishingType', value)}>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select furnishing" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {furnishingTypes.map((type) => (
-                            <SelectItem key={type} value={type}>
-                              {type}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
+              {/* Location & Area */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <label className="text-sm font-bold text-foreground">Preferred Location</label>
+                  <Select value={formData.preferredLocation} onValueChange={(value) => handleSelectChange('preferredLocation', value)}>
+                    <SelectTrigger className="border-gray-300">
+                      <SelectValue placeholder="Select Location" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {locations.map((loc) => (
+                        <SelectItem key={loc} value={loc}>
+                          {loc}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-bold text-foreground">Carpet Area</label>
+                  <Select value={formData.carpetArea} onValueChange={(value) => handleSelectChange('carpetArea', value)}>
+                    <SelectTrigger className="border-gray-300">
+                      <SelectValue placeholder="Select Area" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {carpetAreas.map((area) => (
+                        <SelectItem key={area} value={area}>
+                          {area} sq.ft
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
 
-                    <div>
-                      <label className="font-paragraph text-sm font-medium text-foreground mb-2 block">
-                        Move-in Timeline
-                      </label>
-                      <Select value={formData.moveInTimeline} onValueChange={(value) => handleInputChange('moveInTimeline', value)}>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select timeline" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {timelines.map((timeline) => (
-                            <SelectItem key={timeline} value={timeline}>
-                              {timeline}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  </div>
+              {/* Budget & Timeline */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <label className="text-sm font-bold text-foreground">Budget</label>
+                  <Select value={formData.budget} onValueChange={(value) => handleSelectChange('budget', value)}>
+                    <SelectTrigger className="border-gray-300">
+                      <SelectValue placeholder="Select Budget" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {budgets.map((budget) => (
+                        <SelectItem key={budget} value={budget}>
+                          {budget}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-bold text-foreground">Move-in Timeline</label>
+                  <Select value={formData.moveInTimeline} onValueChange={(value) => handleSelectChange('moveInTimeline', value)}>
+                    <SelectTrigger className="border-gray-300">
+                      <SelectValue placeholder="Select Timeline" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {timelines.map((timeline) => (
+                        <SelectItem key={timeline} value={timeline}>
+                          {timeline}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
 
-                  <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                    <Button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="flex-1 bg-primary text-primary-foreground hover:bg-[-subtle -highlight]"
-                      size="lg"
-                    >
-                      {isSubmitting ? (
-                        'Submitting...'
-                      ) : (
-                        <>
-                          <Send className="mr-2 h-5 w-5" />
-                          Get Matching Offices
-                        </>
-                      )}
-                    </Button>
-                    <Button
-                      type="button"
-                      onClick={handleWhatsAppSubmit}
-                      variant="outline"
-                      className="flex-1 border-[#25D366] text-[#25D366] hover:bg-[#25D366] hover:text-white"
-                      size="lg"
-                    >
-                      WhatsApp Requirement
-                    </Button>
-                  </div>
+              {/* Submit Button */}
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-primary text-white hover:bg-primary/90 mt-6 shadow-lg"
+                size="lg"
+              >
+                {isSubmitting ? 'Submitting...' : 'Get Matching Offices'}
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
 
-                  <div className="text-center pt-4">
-                    <p className="font-paragraph text-sm text-[-soft -graphite]">
-                      <CheckCircle2 className="inline h-4 w-4 mr-1 text-primary" />
-                      Verified options • Fast response • Site visit assistance
-                    </p>
-                  </div>
-                </form>
+              {/* Status Messages */}
+              {submitStatus === 'success' && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="p-4 bg-green-50 border border-green-200 rounded-lg text-green-700 text-sm font-medium"
+                >
+                  ✓ Thank you! We'll contact you soon with matching options.
+                </motion.div>
               )}
-            </Card>
+              {submitStatus === 'error' && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm font-medium"
+                >
+                  ✗ Something went wrong. Please try again.
+                </motion.div>
+              )}
+            </form>
           </motion.div>
         </div>
       </div>

@@ -1,13 +1,11 @@
 import { Image } from '@/components/ui/image';
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 export default function Footer() {
   const quickLinks = [
     { label: 'Home', href: '#home' },
-    { label: 'Yashada Business Zone', href: '#yashada' },
     { label: 'Properties', href: '#properties' },
     { label: 'Locations', href: '#locations' },
-    { label: 'Property Types', href: '#types' },
-    { label: 'Budget & Area', href: '#budget-area' },
     { label: 'Contact', href: '#contact' },
   ];
 
@@ -19,25 +17,20 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[-warm -light -grey] py-12 lg:py-16">
+    <footer className="bg-foreground text-white py-12 lg:py-16">
       <div className="mx-auto max-w-[120rem] px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-3">
-          {/* Logo & Legal */}
-          <div className="space-y-6">
-            <Image
-              src="https://static.wixstatic.com/media/cef78c_b23b1a79df4b4f7e97ae7f773585e4b3~mv2.png?originWidth=128&originHeight=128"
-              alt="7Doors Logo"
-              width={140}
-              className="h-10 w-auto"
-            />
-            <p className="font-paragraph text-sm text-[-soft -graphite] leading-relaxed max-w-md">
-              Premium commercial office spaces for lease in Pune. Verified listings across Baner, Balewadi, Wakad, Aundh, Hinjewadi, PCMC & Pashan.
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4 mb-12">
+          {/* Brand */}
+          <div className="space-y-4">
+            <div className="font-heading font-bold text-2xl text-primary">7Doors</div>
+            <p className="font-paragraph text-sm text-gray-300 leading-relaxed">
+              Premium commercial office spaces for lease in Pune. Verified listings across prime business districts.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-heading text-lg font-semibold text-foreground mb-4">
+            <h3 className="font-heading text-lg font-semibold text-white mb-4">
               Quick Links
             </h3>
             <nav className="flex flex-col space-y-3">
@@ -46,7 +39,7 @@ export default function Footer() {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-                  className="font-paragraph text-sm text-[-soft -graphite] transition-colors hover:text-primary"
+                  className="font-paragraph text-sm text-gray-300 transition-colors hover:text-primary"
                 >
                   {link.label}
                 </a>
@@ -56,29 +49,48 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="font-heading text-lg font-semibold text-foreground mb-4">
+            <h3 className="font-heading text-lg font-semibold text-white mb-4">
               Get in Touch
             </h3>
             <div className="space-y-3">
-              <p className="font-paragraph text-sm text-[-soft -graphite]">
-                <span className="font-semibold text-foreground">Phone:</span> +91 98765 43210
-              </p>
-              <p className="font-paragraph text-sm text-[-soft -graphite]">
-                <span className="font-semibold text-foreground">Email:</span> info@7doors.in
-              </p>
-              <p className="font-paragraph text-sm text-[-soft -graphite]">
-                <span className="font-semibold text-foreground">Location:</span> Pune, Maharashtra
-              </p>
+              <a href="tel:+919876543210" className="flex items-start gap-3 text-gray-300 hover:text-primary transition-colors">
+                <Phone className="h-5 w-5 mt-0.5 shrink-0" />
+                <span className="font-paragraph text-sm">+91 98765 43210</span>
+              </a>
+              <a href="mailto:info@7doors.in" className="flex items-start gap-3 text-gray-300 hover:text-primary transition-colors">
+                <Mail className="h-5 w-5 mt-0.5 shrink-0" />
+                <span className="font-paragraph text-sm">info@7doors.in</span>
+              </a>
+              <div className="flex items-start gap-3 text-gray-300">
+                <MapPin className="h-5 w-5 mt-0.5 shrink-0" />
+                <span className="font-paragraph text-sm">Pune, Maharashtra</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Social & Legal */}
+          <div>
+            <h3 className="font-heading text-lg font-semibold text-white mb-4">
+              Connect
+            </h3>
+            <div className="space-y-3">
+              <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-300 hover:text-[#25D366] transition-colors">
+                <span className="font-paragraph text-sm">WhatsApp</span>
+              </a>
+              <a href="tel:+919876543210" className="flex items-center gap-2 text-gray-300 hover:text-primary transition-colors">
+                <span className="font-paragraph text-sm">Call Us</span>
+              </a>
             </div>
           </div>
         </div>
 
-        {/* Legal Disclosure */}
-        <div className="mt-12 pt-8 border-t border-[-borders]">
-          <p className="font-paragraph text-xs text-[-soft -graphite] leading-relaxed max-w-4xl">
-            <span className="font-semibold text-foreground">Legal Disclosure:</span> Brokerage is applicable from both owner and tenant. In case of a 3-year lock-in, brokerage from the owner is 2 months' rent.
+        {/* Divider */}
+        <div className="border-t border-gray-700 pt-8">
+          {/* Legal Disclosure */}
+          <p className="font-paragraph text-xs text-gray-400 leading-relaxed mb-4">
+            <span className="font-semibold text-gray-300">Legal Disclosure:</span> Brokerage is applicable from both owner and tenant. In case of a 3-year lock-in, brokerage from the owner is 2 months' rent.
           </p>
-          <p className="font-paragraph text-xs text-[-stone -grey] mt-4">
+          <p className="font-paragraph text-xs text-gray-500">
             © {new Date().getFullYear()} 7Doors. All rights reserved.
           </p>
         </div>

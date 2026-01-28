@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Card } from '@/components/ui/card';
 import { BaseCrudService } from '@/integrations';
 import { Locations } from '@/entities';
 import { Image } from '@/components/ui/image';
-import { MapPin } from 'lucide-react';
+import { MapPin, ArrowRight } from 'lucide-react';
 
 export default function LocationsSection() {
   const [locations, setLocations] = useState<Locations[]>([]);
@@ -18,82 +17,98 @@ export default function LocationsSection() {
     try {
       setIsLoading(true);
       const result = await BaseCrudService.getAll<Locations>('locations');
-      const sortedLocations = result.items.sort((a, b) => 
+      const sortedLocations = result.items.sort((a, b) =>
         (a.displayOrder || 0) - (b.displayOrder || 0)
       );
       setLocations(sortedLocations);
-      setIsLoading(false);
     } catch (error) {
+      console.error('Error loading locations:', error);
+    } finally {
       setIsLoading(false);
     }
   };
 
-  return (
-    <section id="locations" className="py-16 lg:py-24 bg-[-warm -light -grey]">
-      <div className="mx-auto max-w-[120rem] px-4 sm:px-6 lg:px-8">
-        <div style={{ minHeight: '400px' }}>
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center space-y-4 mb-12"
-          >
-            <h2 className="font-heading text-3xl lg:text-5xl font-bold text-foreground">
-              Locations We Cover
-            </h2>
-            <p className="font-paragraph text-lg text-[-soft -graphite] max-w-3xl mx-auto">
-              Prime commercial hubs across Pune with excellent connectivity and infrastructure
-            </p>
-          </motion.div>
+  const defaultLocations = [
+    { name: 'Baner', image: 'https://static.wixstatic.com/media/12d367_4f26ccd17f8f4e3a8958306ea08c2332~mv2.png' },
+    { name: 'Balewadi', image: 'https://static.wixstatic.com/media/12d367_4f26ccd17f8f4e3a8958306ea08c2332~mv2.png' },
+    { name: 'Wakad', image: 'https://static.wixstatic.com/media/12d367_4f26ccd17f8f4e3a8958306ea08c2332~mv2.png' },
+    { name: 'Aundh', image: 'https://static.wixstatic.com/media/12d367_4f26ccd17f8f4e3a8958306ea08c2332~mv2.png' },
+    { name: 'Hinjewadi', image: 'https://static.wixstatic.com/media/12d367_4f26ccd17f8f4e3a8958306ea08c2332~mv2.png' },
+    { name: 'PCMC', image: 'https://static.wixstatic.com/media/12d367_4f26ccd17f8f4e3a8958306ea08c2332~mv2.png' },
+    { name: 'Pashan', image: 'https://static.wixstatic.com/media/12d367_4f26ccd17f8f4e3a8958306ea08c2332~mv2.png' },
+  ];
 
-          {/* Locations Grid */}
-          {isLoading ? null : (
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {locations.map((location, idx) => (
-                <motion.div
-                  key={location._id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                >
-                  <Card className="overflow-hidden hover:shadow-lg transition-shadow group cursor-pointer">
-                    {location.locationImage && (
-                      <div className="relative overflow-hidden">
-                        <Image
-                          src={location.locationImage}
-                          alt={location.locationName || 'Location'}
-                          width={400}
-                          className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                        <div className="absolute bottom-4 left-4 right-4">
-                          <div className="flex items-center text-white">
-                            <MapPin className="h-5 w-5 mr-2 flex-shrink-0" />
-                            <h3 className="font-heading text-xl font-semibold">
-                              {location.locationName}
-                            </h3>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-                    
-                    {location.description && (
-                      <div className="p-4">
-                        <p className="font-paragraph text-sm text-[-soft -graphite] line-clamp-2">
-                          {location.description}
-                        </p>
-                      </div>
-                    )}
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
+  const displayLocations = locations.length > 0 ? locations : defaultLocations;
+
+  return (
+    <section id="locations" className="py-16 lg:py-24 bg-gray-50">
+      <div className="mx-auto max-w-[120rem] px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center max-w-3xl mx-auto mb-12 lg:mb-16"
+        >
+          <h2 className="font-heading text-3xl lg:text-5xl font-bold text-foreground mb-4">
+            Locations We Cover
+          </h2>
+          <p className="font-paragraph text-lg text-gray-600">
+            Prime commercial hubs across Pune with excellent connectivity and infrastructure
+          </p>
+        </motion.div>
+
+        {/* Locations Grid - Responsive */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {isLoading ? (
+            Array.from({ length: 7 }).map((_, i) => (
+              <div key={i} className="h-64 bg-gray-200 rounded-xl animate-pulse" />
+            ))
+          ) : (
+            displayLocations.map((location, i) => (
+              <LocationCard
+                key={location._id || location.name}
+                location={location}
+                index={i}
+              />
+            ))
           )}
         </div>
       </div>
     </section>
+  );
+}
+
+function LocationCard({ location, index }: { location: any; index: number }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ delay: index * 0.05 }}
+      className="group relative h-64 rounded-xl overflow-hidden cursor-pointer"
+    >
+      {/* Image */}
+      <Image
+        src={location.locationImage || location.image || 'https://static.wixstatic.com/media/12d367_4f26ccd17f8f4e3a8958306ea08c2332~mv2.png'}
+        alt={location.locationName || location.name}
+        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+      />
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+      {/* Content */}
+      <div className="absolute bottom-0 left-0 w-full p-6">
+        <h3 className="text-white font-heading text-2xl font-bold mb-2">
+          {location.locationName || location.name}
+        </h3>
+        <div className="flex items-center text-white/80 text-sm group-hover:text-white transition-colors">
+          <MapPin className="w-4 h-4 mr-1" />
+          View Properties
+          <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+        </div>
+      </div>
+    </motion.div>
   );
 }
