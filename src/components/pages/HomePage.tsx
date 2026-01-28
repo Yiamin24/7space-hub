@@ -4,6 +4,7 @@ import { MessageCircle, Phone, ArrowRight, MapPin, Maximize2, IndianRupee, Build
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Image } from '@/components/ui/image';
+import MaskedHeroSection from '@/components/sections/MaskedHeroSection';
 import HeroSection from '@/components/sections/HeroSection';
 import PropertiesSection from '@/components/sections/PropertiesSection';
 import LocationsSection from '@/components/sections/LocationsSection';
@@ -63,6 +64,9 @@ export default function HomePage() {
         </div>
 
         <div className="relative z-10">
+          {/* MASKED HERO SECTION - Full screen with text mask effect */}
+          <MaskedHeroSection />
+
           {/* HERO SECTION - Reduced top padding for cleaner entry */}
           <section className="pt-20 lg:pt-0">
             <HeroSection isMobile={isMobile} />
