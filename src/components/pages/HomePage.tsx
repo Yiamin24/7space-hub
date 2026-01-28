@@ -69,7 +69,7 @@ export default function HomePage() {
           </section>
 
           {/* CONTENT SECTIONS - Wrapped in a container with consistent spacing */}
-          <div className="space-y-24 md:space-y-40 pb-20">
+          <div className="space-y-12 md:space-y-16 pb-20">
             
             {/* Portfolio Overview Section */}
             <motion.section 

@@ -90,7 +90,7 @@ function LocationCard({ location, index }: { location: any; index: number }) {
     >
       {/* Image */}
       <Image
-        src={location.locationImage || location.image || 'https://static.wixstatic.com/media/12d367_71ebdd7141d041e4be3d91d80d4578dd~mv2.png'}
+        src={location.locationImage || location.image || 'https://static.wixstatic.com/media/cef78c_c3f12195e0e0441196b18d796f94388e~mv2.png?originWidth=256&originHeight=256'}
         alt={location.locationName || location.name}
         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
       />
