@@ -67,22 +67,18 @@ export default function HomePage() {
           {/* MASKED HERO SECTION - Full screen with text mask effect */}
           <MaskedHeroSection />
 
-          {/* HERO SECTION - Reduced top padding for cleaner entry */}
-          <section className="pt-20 lg:pt-0">
-            <HeroSection isMobile={isMobile} />
-          </section>
+          {/* HERO SECTION */}
+          <HeroSection isMobile={isMobile} />
 
-          {/* CONTENT SECTIONS - Wrapped in a container with consistent spacing */}
-          <div className="space-y-12 md:space-y-16 pb-20">
-            
-            {/* Portfolio Overview Section */}
-            <motion.section 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8"
-            >
+          {/* Portfolio Overview Section */}
+          <motion.section 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="py-16 lg:py-24 bg-white"
+          >
+            <div className="max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8">
               <div className="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-8 lg:p-12 border border-gray-200">
                 <h2 className="font-heading text-3xl lg:text-4xl font-bold text-foreground mb-8 text-center">
                   Portfolio Overview
@@ -120,37 +116,23 @@ export default function HomePage() {
                   </motion.div>
                 </div>
               </div>
-            </motion.section>
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <FeaturedPrioritySection />
-            </motion.div>
-
-            <section className="relative">
-              <div className="absolute inset-0 bg-slate-50/50 -skew-y-1" />
-              <div className="relative py-10">
-                <PropertiesSection />
-              </div>
-            </section>
-
-            <LocationsSection />
-
-            <div className="max-w-[1440px] mx-auto px-4 md:px-8">
-               <PropertyTypesSection />
             </div>
+          </motion.section>
+          
+          <FeaturedPrioritySection />
 
-            <BudgetAreaSection />
+          <PropertiesSection />
 
-            <ContactSection />
-          </div>
+          <LocationsSection />
+
+          <PropertyTypesSection />
+
+          <BudgetAreaSection />
+
+          <ContactSection />
 
           {/* LEGAL DISCLAIMER STRIP - Refined Typography */}
-          <div className="w-full bg-white py-12 px-4 border-t border-gray-100">
+          <div className="w-full bg-white py-16 lg:py-20 px-4 border-t border-gray-100">
             <div className="max-w-3xl mx-auto text-center">
               <p className="text-[11px] uppercase tracking-widest text-gray-400 font-bold mb-2">
                 Commercial Terms
