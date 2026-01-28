@@ -41,7 +41,7 @@ export default function LocationsSection() {
   const displayLocations = locations.length > 0 ? locations : defaultLocations;
 
   return (
-    <section id="locations" className="py-16 lg:py-24 bg-white">
+    <section id="locations" className="py-20 lg:py-28 bg-white">
       <div className="mx-auto max-w-[120rem] px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div

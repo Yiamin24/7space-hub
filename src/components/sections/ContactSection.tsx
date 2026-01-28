@@ -73,7 +73,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-16 lg:py-24 bg-foreground text-white relative overflow-hidden">
+    <section id="contact" className="py-20 lg:py-28 bg-foreground text-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 skew-x-12 pointer-events-none" />
 
