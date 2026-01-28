@@ -21,7 +21,7 @@ export default function PropertiesSection({ onOpenPopup }: PropertiesSectionProp
   const loadProperties = async () => {
     try {
       setIsLoading(true);
-      const result = await BaseCrudService.getAll<CommercialProperties>('commercialproperties', [], { limit: 6 });
+      const result = await BaseCrudService.getAll<CommercialProperties>('commercialproperties', {}, { limit: 6 });
       setProperties(result.items);
     } catch (error) {
       console.error('Error loading properties:', error);
