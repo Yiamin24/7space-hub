@@ -25,7 +25,7 @@ export default function BudgetAreaSection() {
   ];
 
   return (
-    <section id="budget-area" className="py-20 lg:py-28 bg-slate-900 text-white">
+    <section id="budget-area" className="py-16 lg:py-24 bg-slate-900 text-white">
       <div className="mx-auto max-w-[120rem] px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div

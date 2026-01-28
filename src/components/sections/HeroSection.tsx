@@ -30,11 +30,11 @@ export default function HeroSection({ isMobile }: { isMobile: boolean }) {
   };
 
   return (
-    <section id="home" className="relative w-full bg-white py-20 lg:py-24">
+    <section id="home" className="relative w-full bg-white">
       {/* Subtle background */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-white opacity-40 pointer-events-none" />
       
-      <div className="mx-auto w-full max-w-[120rem] px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="mx-auto w-full max-w-[120rem] px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-24 relative z-10">
         <div className="grid gap-8 sm:gap-10 md:gap-12 lg:grid-cols-2 lg:gap-16 items-center">
           {/* Left: Content */}
           <motion.div
