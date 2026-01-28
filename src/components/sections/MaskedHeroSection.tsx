@@ -38,7 +38,7 @@ export default function MaskedHeroSection() {
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               filter: 'drop-shadow(0 8px 32px rgba(0, 0, 0, 0.5))',
-              opacity: 0.95,
+              opacity: 1,
             }}
           >
             7 Doors
