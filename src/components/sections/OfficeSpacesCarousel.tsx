@@ -35,7 +35,7 @@ export default function OfficeSpacesCarousel({ properties, onOpenPopup }: Office
 
     const animate = () => {
       setXPosition((prev) => {
-        const newPos = prev - 0.5;
+        const newPos = prev - 0.1667;
         // Reset to start when we've scrolled one full set
         if (newPos <= -totalWidth) {
           return 0;
@@ -44,7 +44,7 @@ export default function OfficeSpacesCarousel({ properties, onOpenPopup }: Office
       });
     };
 
-    animationRef.current = setInterval(animate, 30);
+    animationRef.current = setInterval(animate, 50);
 
     return () => {
       if (animationRef.current) clearInterval(animationRef.current);
@@ -95,8 +95,6 @@ export default function OfficeSpacesCarousel({ properties, onOpenPopup }: Office
       </div>
 
       {/* Gradient overlays for smooth edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-12 md:w-16 bg-gradient-to-r from-white to-transparent pointer-events-none z-10" />
-      <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-12 md:w-16 bg-gradient-to-l from-white to-transparent pointer-events-none z-10" />
     </div>
   );
 }
