@@ -71,6 +71,53 @@ export default function HomePage() {
           {/* CONTENT SECTIONS - Wrapped in a container with consistent spacing */}
           <div className="space-y-24 md:space-y-40 pb-20">
             
+            {/* Portfolio Overview Section */}
+            <motion.section 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8"
+            >
+              <div className="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-8 lg:p-12 border border-gray-200">
+                <h2 className="font-heading text-3xl lg:text-4xl font-bold text-foreground mb-8 text-center">
+                  Portfolio Overview
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 }}
+                    className="text-center"
+                  >
+                    <div className="text-4xl lg:text-5xl font-heading font-bold text-primary mb-2">100+</div>
+                    <p className="font-paragraph text-gray-600">Commercial Properties Available for Leasing</p>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 }}
+                    className="text-center"
+                  >
+                    <div className="text-4xl lg:text-5xl font-heading font-bold text-primary mb-2">7</div>
+                    <p className="font-paragraph text-gray-600">Primary Focus Locations Across Pune</p>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3 }}
+                    className="text-center"
+                  >
+                    <div className="text-4xl lg:text-5xl font-heading font-bold text-primary mb-2">7</div>
+                    <p className="font-paragraph text-gray-600">Property Types & Solutions</p>
+                  </motion.div>
+                </div>
+              </div>
+            </motion.section>
+            
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -93,10 +140,7 @@ export default function HomePage() {
                <PropertyTypesSection />
             </div>
 
-            <section className="bg-slate-900 py-24 text-white rounded-[2rem] mx-4 md:mx-10 overflow-hidden relative">
-               <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 blur-[80px] -mr-32 -mt-32" />
-               <BudgetAreaSection />
-            </section>
+            <BudgetAreaSection />
 
             <ContactSection />
           </div>

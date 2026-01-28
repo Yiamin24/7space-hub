@@ -29,19 +29,19 @@ export default function LocationsSection() {
   };
 
   const defaultLocations = [
-    { name: 'Baner', image: 'https://static.wixstatic.com/media/12d367_4f26ccd17f8f4e3a8958306ea08c2332~mv2.png' },
-    { name: 'Balewadi', image: 'https://static.wixstatic.com/media/12d367_4f26ccd17f8f4e3a8958306ea08c2332~mv2.png' },
-    { name: 'Wakad', image: 'https://static.wixstatic.com/media/12d367_4f26ccd17f8f4e3a8958306ea08c2332~mv2.png' },
-    { name: 'Aundh', image: 'https://static.wixstatic.com/media/12d367_4f26ccd17f8f4e3a8958306ea08c2332~mv2.png' },
-    { name: 'Hinjewadi', image: 'https://static.wixstatic.com/media/12d367_4f26ccd17f8f4e3a8958306ea08c2332~mv2.png' },
-    { name: 'PCMC', image: 'https://static.wixstatic.com/media/12d367_4f26ccd17f8f4e3a8958306ea08c2332~mv2.png' },
-    { name: 'Pashan', image: 'https://static.wixstatic.com/media/12d367_4f26ccd17f8f4e3a8958306ea08c2332~mv2.png' },
+    { name: 'Baner', image: 'https://static.wixstatic.com/media/cef78c_28c19df83a204c9c9beb8f3e964fec31~mv2.png?originWidth=256&originHeight=256', displayOrder: 1 },
+    { name: 'Balewadi', image: 'https://static.wixstatic.com/media/cef78c_e06c813327404f939229dd82a09383a4~mv2.png?originWidth=256&originHeight=256', displayOrder: 2 },
+    { name: 'Wakad', image: 'https://static.wixstatic.com/media/cef78c_ef3498e5e489417ca80d038f20b8fe1e~mv2.png?originWidth=256&originHeight=256', displayOrder: 3 },
+    { name: 'Aundh', image: 'https://static.wixstatic.com/media/cef78c_40f8de4ac0f84e01acc89b82979825dc~mv2.png?originWidth=256&originHeight=256', displayOrder: 4 },
+    { name: 'Hinjewadi', image: 'https://static.wixstatic.com/media/cef78c_5a27814c3eca4def86457e687aa16077~mv2.png?originWidth=256&originHeight=256', displayOrder: 5 },
+    { name: 'PCMC', image: 'https://static.wixstatic.com/media/cef78c_ccae30bd7333481d93e1951c82e942f2~mv2.png?originWidth=256&originHeight=256', displayOrder: 6 },
+    { name: 'Pashan', image: 'https://static.wixstatic.com/media/cef78c_ac015516689e42699888e2f44268d4c0~mv2.png?originWidth=256&originHeight=256', displayOrder: 7 },
   ];
 
   const displayLocations = locations.length > 0 ? locations : defaultLocations;
 
   return (
-    <section id="locations" className="py-16 lg:py-24 bg-gray-50">
+    <section id="locations" className="py-16 lg:py-24 bg-white">
       <div className="mx-auto max-w-[120rem] px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -51,10 +51,10 @@ export default function LocationsSection() {
           className="text-center max-w-3xl mx-auto mb-12 lg:mb-16"
         >
           <h2 className="font-heading text-3xl lg:text-5xl font-bold text-foreground mb-4">
-            Locations Across Pune
+            Primary Focus Locations
           </h2>
           <p className="font-paragraph text-lg text-gray-600">
-            Explore office spaces in Pune's most sought-after business districts with excellent connectivity and amenities.
+            Explore office spaces in Pune's 7 most sought-after business districts with excellent connectivity, infrastructure, and business ecosystem.
           </p>
         </motion.div>
 
@@ -90,7 +90,7 @@ function LocationCard({ location, index }: { location: any; index: number }) {
     >
       {/* Image */}
       <Image
-        src={location.locationImage || location.image || 'https://static.wixstatic.com/media/12d367_4f26ccd17f8f4e3a8958306ea08c2332~mv2.png'}
+        src={location.locationImage || location.image || 'https://static.wixstatic.com/media/12d367_71ebdd7141d041e4be3d91d80d4578dd~mv2.png'}
         alt={location.locationName || location.name}
         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
       />
