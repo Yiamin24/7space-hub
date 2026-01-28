@@ -80,12 +80,20 @@ export default function LocationsSection() {
 }
 
 function LocationCard({ location, index }: { location: any; index: number }) {
+  const handleClick = () => {
+    const element = document.querySelector('#properties');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ delay: index * 0.05 }}
+      onClick={handleClick}
       className="group relative h-40 sm:h-48 md:h-56 lg:h-64 rounded-lg sm:rounded-xl overflow-hidden cursor-pointer"
     >
       {/* Image */}

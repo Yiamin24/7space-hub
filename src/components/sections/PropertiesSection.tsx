@@ -13,21 +13,30 @@ interface PropertiesSectionProps {
 export default function PropertiesSection({ onOpenPopup }: PropertiesSectionProps) {
   const [properties, setProperties] = useState<CommercialProperties[]>([])
   const [isLoading, setIsLoading] = useState(true);
+  const [skip, setSkip] = useState(0);
+  const [hasNext, setHasNext] = useState(false);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
 
   useEffect(() => {
     loadProperties();
   }, []);
 
-  const loadProperties = async () => {
+  const loadProperties = async (skipValue = 0) => {
     try {
-      setIsLoading(true);
-      const result = await BaseCrudService.getAll<CommercialProperties>('commercialproperties', {}, { limit: 6 });
-      setProperties(result.items);
+      skipValue === 0 ? setIsLoading(true) : setIsLoadingMore(true);
+      const result = await BaseCrudService.getAll<CommercialProperties>('commercialproperties', {}, { limit: 6, skip: skipValue });
+      setProperties(skipValue === 0 ? result.items : [...properties, ...result.items]);
+      setHasNext(result.hasNext || false);
+      setSkip(skipValue + 6);
     } catch (error) {
       console.error('Error loading properties:', error);
     } finally {
-      setIsLoading(false);
+      skipValue === 0 ? setIsLoading(false) : setIsLoadingMore(false);
     }
+  };
+
+  const handleLoadMore = () => {
+    loadProperties(skip);
   };
 
   return (
@@ -67,7 +76,7 @@ export default function PropertiesSection({ onOpenPopup }: PropertiesSectionProp
         </div>
 
         {/* Load More Button */}
-        {!isLoading && properties.length > 0 && (
+        {!isLoading && hasNext && properties.length > 0 && (
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -75,11 +84,13 @@ export default function PropertiesSection({ onOpenPopup }: PropertiesSectionProp
             className="text-center"
           >
             <Button
+              onClick={handleLoadMore}
+              disabled={isLoadingMore}
               variant="outline"
               size="lg"
               className="border-2 border-primary text-primary hover:bg-primary hover:text-white text-sm sm:text-base"
             >
-              Load More Properties
+              {isLoadingMore ? 'Loading...' : 'Load More Properties'}
               <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
             </Button>
           </motion.div>
