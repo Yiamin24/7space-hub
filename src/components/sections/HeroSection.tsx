@@ -30,7 +30,7 @@ export default function HeroSection({ isMobile }: { isMobile: boolean }) {
   };
 
   return (
-    <section id="home" className="relative w-full bg-white py-16 lg:py-24">
+    <section id="home" className="relative w-full bg-white py-12 lg:py-16">
       {/* Subtle background */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-white opacity-40 pointer-events-none" />
       

@@ -27,7 +27,7 @@ export default function PropertiesSection() {
   };
 
   return (
-    <section id="properties" className="py-16 lg:py-24 bg-white">
+    <section id="properties" className="py-12 lg:py-16 bg-white">
       <div className="mx-auto max-w-[120rem] px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div

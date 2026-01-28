@@ -21,7 +21,7 @@ export default function FeaturedPrioritySection() {
   ];
 
   return (
-    <section id="yashada" className="py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-white">
+    <section id="yashada" className="py-12 lg:py-16 bg-gradient-to-br from-gray-50 to-white">
       <div className="mx-auto max-w-[120rem] px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:gap-16 lg:grid-cols-2 items-center">
           {/* Left: Image */}
