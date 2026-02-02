@@ -27,7 +27,7 @@ export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const locations = ['Baner', 'Balewadi', 'Wakad', 'Aundh', 'Hinjewadi', 'PCMC', 'Pashan'];
-  const carpetAreas = ['300-600', '600-1000', '1000-1800', '1800+'];
+  const carpetAreas = ['300-600', '600-1200', '1200-2500', '2500-4000'];
   const budgets = ['₹40k-₹75k', '₹75k-₹1.2L', '₹1.2L-₹2L', '₹2L-₹3L', '₹3L+'];
   const furnishingTypes = ['Unfurnished', 'Semi-Furnished', 'Fully Furnished'];
   const timelines = ['Immediate', 'Within 1 Month', '1-3 Months', '3+ Months'];

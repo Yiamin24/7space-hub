@@ -72,16 +72,16 @@ export default function HomePage() {
   const locations = ['Baner', 'Balewadi', 'Wakad', 'Aundh', 'Hinjewadi', 'PCMC', 'Pashan'];
   const carpetAreas = [
     { value: '300-600', label: '300-600 sq.ft' },
-    { value: '600-1000', label: '600-1000 sq.ft' },
-    { value: '1000-1800', label: '1000-1800 sq.ft' },
-    { value: '1800+', label: 'Above 1800 sq.ft' },
+    { value: '600-1200', label: '600-1200 sq.ft' },
+    { value: '1200-2500', label: '1200-2500 sq.ft' },
+    { value: '2500-4000', label: '2500-4000 sq.ft' },
   ];
   const budgets = ['₹40k - ₹75k', '₹75k - ₹1.2L', '₹1.2L - ₹2L', '₹2L - ₹3L', '₹3L+'];
 
   const cardsData = [
     { icon: Building2, title: 'Verified Listings', desc: 'All properties thoroughly vetted and verified' },
     { icon: MapPin, title: 'Prime Locations', desc: "Strategically located across Pune's business hubs" },
-    { icon: Maximize2, title: 'Flexible Spaces', desc: 'From 300 to 3000+ sq.ft options available' },
+    { icon: Maximize2, title: 'Flexible Spaces', desc: 'From 300 to 4000 sq.ft options available' },
     { icon: Check, title: 'Expert Support', desc: '24/7 dedicated assistance for your needs' },
     { icon: IndianRupee, title: 'Transparent Pricing', desc: 'No hidden charges, clear cost breakdown' },
     { icon: MessageCircle, title: 'Quick Response', desc: 'Instant replies to your inquiries' },

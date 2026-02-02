@@ -17,9 +17,9 @@ export default function HeroSection({ isMobile, onOpenPopup }: HeroSectionProps)
   const locations = ['Baner', 'Balewadi', 'Wakad', 'Aundh', 'Hinjewadi', 'PCMC', 'Pashan'];
   const carpetAreas = [
     { value: '300-600', label: '300-600 sq.ft' },
-    { value: '600-1000', label: '600-1000 sq.ft' },
-    { value: '1000-1800', label: '1000-1800 sq.ft' },
-    { value: '1800+', label: 'Above 1800 sq.ft' },
+    { value: '600-1200', label: '600-1200 sq.ft' },
+    { value: '1200-2500', label: '1200-2500 sq.ft' },
+    { value: '2500-4000', label: '2500-4000 sq.ft' },
   ];
   const budgets = [
     '₹40k - ₹75k',
@@ -94,7 +94,7 @@ export default function HeroSection({ isMobile, onOpenPopup }: HeroSectionProps)
                 <div className="flex items-center text-primary">
                   <Maximize2 className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
                 </div>
-                <p className="font-heading text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-foreground">300-3000</p>
+                <p className="font-heading text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-foreground">300-4000</p>
                 <p className="font-paragraph text-xs sm:text-sm text-gray-600">Sq.Ft Range</p>
               </motion.div>
             </div>

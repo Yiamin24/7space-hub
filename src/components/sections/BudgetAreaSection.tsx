@@ -15,17 +15,17 @@ export default function BudgetAreaSection({ onOpenPopup }: BudgetAreaSectionProp
   ];
 
   const areaRanges = [
-    { label: '350 - 600 sq.ft', desc: 'Compact' },
-    { label: '600 - 1000 sq.ft', desc: 'Standard' },
-    { label: '1000 - 1800 sq.ft', desc: 'Large' },
-    { label: '1800+ sq.ft', desc: 'Enterprise' },
+    { label: '300 - 600 sq.ft', desc: 'Compact' },
+    { label: '600 - 1200 sq.ft', desc: 'Standard' },
+    { label: '1200 - 2500 sq.ft', desc: 'Large' },
+    { label: '2500 - 4000 sq.ft', desc: 'Enterprise' },
   ];
 
   const priorityRules = [
-    { range: '600–1000 sq.ft', priority: 50, label: 'High Priority', desc: 'Most Sought After' },
-    { range: '1000–1800 sq.ft', priority: 30, label: 'Medium Priority', desc: 'Growing Demand' },
+    { range: '600–1200 sq.ft', priority: 50, label: 'High Priority', desc: 'Most Sought After' },
+    { range: '1200–2500 sq.ft', priority: 30, label: 'Medium Priority', desc: 'Growing Demand' },
     { range: '300–600 sq.ft', priority: 10, label: 'Standard', desc: 'Niche Segment' },
-    { range: 'Above 1800 sq.ft', priority: 10, label: 'Standard', desc: 'Enterprise Grade' },
+    { range: '2500–4000 sq.ft', priority: 10, label: 'Standard', desc: 'Enterprise Grade' },
   ];
 
   return (
@@ -165,7 +165,7 @@ export default function BudgetAreaSection({ onOpenPopup }: BudgetAreaSectionProp
 
             <div className="bg-slate-700/30 border border-slate-600/50 rounded-lg p-3 sm:p-4 mt-4 sm:mt-6">
               <div className="font-bold text-white mb-1 text-xs sm:text-sm">Overall Requirement Range</div>
-              <div className="text-lg sm:text-xl font-heading font-bold text-slate-200">350 - 3000 sq.ft</div>
+              <div className="text-lg sm:text-xl font-heading font-bold text-slate-200">300 - 4000 sq.ft</div>
               <div className="text-xs text-gray-300 mt-1">Comprehensive coverage for all business sizes</div>
             </div>
           </motion.div>
