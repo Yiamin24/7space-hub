@@ -53,13 +53,13 @@ export default function Footer() {
               Get in Touch
             </h3>
             <div className="space-y-2 sm:space-y-3">
-              <a href="tel:+919876543210" className="flex items-start gap-2 sm:gap-3 text-gray-300 hover:text-primary transition-colors">
+              <a href="tel:+919740740366" className="flex items-start gap-2 sm:gap-3 text-gray-300 hover:text-primary transition-colors">
                 <Phone className="h-4 w-4 sm:h-5 sm:w-5 mt-0.5 shrink-0" />
-                <span className="font-paragraph text-xs sm:text-sm">+91 98765 43210</span>
+                <span className="font-paragraph text-xs sm:text-sm">+91 97407 40366</span>
               </a>
-              <a href="mailto:info@7doors.in" className="flex items-start gap-2 sm:gap-3 text-gray-300 hover:text-primary transition-colors">
+              <a href="mailto:official@7doors.in" className="flex items-start gap-2 sm:gap-3 text-gray-300 hover:text-primary transition-colors">
                 <Mail className="h-4 w-4 sm:h-5 sm:w-5 mt-0.5 shrink-0" />
-                <span className="font-paragraph text-xs sm:text-sm">info@7doors.in</span>
+                <span className="font-paragraph text-xs sm:text-sm">official@7doors.in</span>
               </a>
               <div className="flex items-start gap-2 sm:gap-3 text-gray-300">
                 <MapPin className="h-4 w-4 sm:h-5 sm:w-5 mt-0.5 shrink-0" />
@@ -74,10 +74,10 @@ export default function Footer() {
               Connect
             </h3>
             <div className="space-y-2 sm:space-y-3">
-              <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-300 hover:text-[#25D366] transition-colors">
+              <a href="https://wa.me/919740740366" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-300 hover:text-[#25D366] transition-colors">
                 <span className="font-paragraph text-xs sm:text-sm">WhatsApp</span>
               </a>
-              <a href="tel:+919876543210" className="flex items-center gap-2 text-gray-300 hover:text-primary transition-colors">
+              <a href="tel:+919740740366" className="flex items-center gap-2 text-gray-300 hover:text-primary transition-colors">
                 <span className="font-paragraph text-xs sm:text-sm">Call Us</span>
               </a>
             </div>

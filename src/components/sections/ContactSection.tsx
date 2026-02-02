@@ -98,7 +98,7 @@ export default function ContactSection() {
             {/* Contact Info Cards */}
             <div className="space-y-3 sm:space-y-4">
               <motion.a
-                href="tel:+919876543210"
+                href="tel:+919740740366"
                 whileHover={{ x: 10 }}
                 className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
               >
@@ -107,12 +107,12 @@ export default function ContactSection() {
                 </div>
                 <div className="min-w-0">
                   <div className="text-xs sm:text-sm text-gray-400">Call Us Directly</div>
-                  <div className="text-base sm:text-lg font-bold truncate">+91 98765 43210</div>
+                  <div className="text-base sm:text-lg font-bold truncate">+91 97407 40366</div>
                 </div>
               </motion.a>
 
               <motion.a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/919740740366"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ x: 10 }}
@@ -128,7 +128,7 @@ export default function ContactSection() {
               </motion.a>
 
               <motion.a
-                href="mailto:info@7doors.in"
+                href="mailto:official@7doors.in"
                 whileHover={{ x: 10 }}
                 className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
               >
@@ -137,7 +137,7 @@ export default function ContactSection() {
                 </div>
                 <div className="min-w-0">
                   <div className="text-xs sm:text-sm text-gray-400">Email Us</div>
-                  <div className="text-base sm:text-lg font-bold truncate">info@7doors.in</div>
+                  <div className="text-base sm:text-lg font-bold truncate">official@7doors.in</div>
                 </div>
               </motion.a>
             </div>
