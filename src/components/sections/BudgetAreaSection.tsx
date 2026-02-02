@@ -57,7 +57,7 @@ export default function BudgetAreaSection({ onOpenPopup }: BudgetAreaSectionProp
             {/* Budget Range */}
             <div>
               <div className="flex items-center gap-2 mb-3 sm:mb-4">
-                <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400" />
                 <h3 className="font-heading text-base sm:text-lg md:text-xl font-bold">Budget Range</h3>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
@@ -68,10 +68,10 @@ export default function BudgetAreaSection({ onOpenPopup }: BudgetAreaSectionProp
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.05 }}
-                    className="bg-amber-500/20 backdrop-blur-sm border border-amber-400/50 rounded-lg p-2 sm:p-3 hover:bg-amber-500/30 transition-colors"
+                    className="bg-slate-700/40 backdrop-blur-sm border border-slate-600/50 rounded-lg p-2 sm:p-3 hover:bg-slate-700/60 transition-colors"
                   >
-                    <div className="font-bold text-sm sm:text-base text-amber-300">{item.label}</div>
-                    <div className="text-xs text-amber-100">{item.desc}</div>
+                    <div className="font-bold text-sm sm:text-base text-slate-200">{item.label}</div>
+                    <div className="text-xs text-slate-300">{item.desc}</div>
                   </motion.div>
                 ))}
               </div>
@@ -80,7 +80,7 @@ export default function BudgetAreaSection({ onOpenPopup }: BudgetAreaSectionProp
             {/* Carpet Area */}
             <div>
               <div className="flex items-center gap-2 mb-3 sm:mb-4">
-                <Target className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                <Target className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400" />
                 <h3 className="font-heading text-base sm:text-lg md:text-xl font-bold">Carpet Area Range</h3>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
@@ -91,10 +91,10 @@ export default function BudgetAreaSection({ onOpenPopup }: BudgetAreaSectionProp
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.05 }}
-                    className="bg-amber-500/20 backdrop-blur-sm border border-amber-400/50 rounded-lg p-2 sm:p-3 hover:bg-amber-500/30 transition-colors"
+                    className="bg-slate-700/40 backdrop-blur-sm border border-slate-600/50 rounded-lg p-2 sm:p-3 hover:bg-slate-700/60 transition-colors"
                   >
-                    <div className="font-bold text-sm sm:text-base text-amber-300">{item.label}</div>
-                    <div className="text-xs text-amber-100">{item.desc}</div>
+                    <div className="font-bold text-sm sm:text-base text-slate-200">{item.label}</div>
+                    <div className="text-xs text-slate-300">{item.desc}</div>
                   </motion.div>
                 ))}
               </div>
@@ -140,7 +140,7 @@ export default function BudgetAreaSection({ onOpenPopup }: BudgetAreaSectionProp
                       <div className="text-xs text-gray-400">{rule.desc}</div>
                     </div>
                     <div className="text-right">
-                      <div className="text-lg sm:text-xl font-heading font-bold text-primary">{rule.priority}%</div>
+                      <div className="text-lg sm:text-xl font-heading font-bold text-slate-300">{rule.priority}%</div>
                       <div className="text-xs text-gray-400">{rule.label}</div>
                     </div>
                   </div>
@@ -152,9 +152,9 @@ export default function BudgetAreaSection({ onOpenPopup }: BudgetAreaSectionProp
                       transition={{ duration: 1, delay: 0.5 }}
                       className={`h-full rounded-full ${
                         rule.priority >= 50
-                          ? 'bg-primary'
+                          ? 'bg-slate-400'
                           : rule.priority >= 30
-                          ? 'bg-indigo-400'
+                          ? 'bg-slate-500'
                           : 'bg-gray-500'
                       }`}
                     />
@@ -163,9 +163,9 @@ export default function BudgetAreaSection({ onOpenPopup }: BudgetAreaSectionProp
               ))}
             </div>
 
-            <div className="bg-primary/10 border border-primary/30 rounded-lg p-3 sm:p-4 mt-4 sm:mt-6">
+            <div className="bg-slate-700/30 border border-slate-600/50 rounded-lg p-3 sm:p-4 mt-4 sm:mt-6">
               <div className="font-bold text-white mb-1 text-xs sm:text-sm">Overall Requirement Range</div>
-              <div className="text-lg sm:text-xl font-heading font-bold text-primary">350 - 3000 sq.ft</div>
+              <div className="text-lg sm:text-xl font-heading font-bold text-slate-200">350 - 3000 sq.ft</div>
               <div className="text-xs text-gray-300 mt-1">Comprehensive coverage for all business sizes</div>
             </div>
           </motion.div>
