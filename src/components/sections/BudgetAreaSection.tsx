@@ -68,10 +68,10 @@ export default function BudgetAreaSection({ onOpenPopup }: BudgetAreaSectionProp
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.05 }}
-                    className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-2 sm:p-3 hover:bg-white/15 transition-colors"
+                    className="bg-amber-500/20 backdrop-blur-sm border border-amber-400/50 rounded-lg p-2 sm:p-3 hover:bg-amber-500/30 transition-colors"
                   >
-                    <div className="font-bold text-sm sm:text-base text-primary">{item.label}</div>
-                    <div className="text-xs text-gray-300">{item.desc}</div>
+                    <div className="font-bold text-sm sm:text-base text-amber-300">{item.label}</div>
+                    <div className="text-xs text-amber-100">{item.desc}</div>
                   </motion.div>
                 ))}
               </div>
@@ -91,10 +91,10 @@ export default function BudgetAreaSection({ onOpenPopup }: BudgetAreaSectionProp
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.05 }}
-                    className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-2 sm:p-3 hover:bg-white/15 transition-colors"
+                    className="bg-amber-500/20 backdrop-blur-sm border border-amber-400/50 rounded-lg p-2 sm:p-3 hover:bg-amber-500/30 transition-colors"
                   >
-                    <div className="font-bold text-sm sm:text-base text-primary">{item.label}</div>
-                    <div className="text-xs text-gray-300">{item.desc}</div>
+                    <div className="font-bold text-sm sm:text-base text-amber-300">{item.label}</div>
+                    <div className="text-xs text-amber-100">{item.desc}</div>
                   </motion.div>
                 ))}
               </div>
