@@ -53,7 +53,7 @@ export default function HeroSection({ isMobile, onOpenPopup }: HeroSectionProps)
               </h1>
               
               <p className="font-paragraph text-sm sm:text-base md:text-lg lg:text-lg text-gray-600 leading-relaxed max-w-2xl">
-                Discover 100+ verified office spaces across Pune's premier business districts. From plug-and-play solutions to bare shell options, we connect you with the perfect workspace for your business.
+                Discover 200+ verified office spaces across Pune's premier business districts. From plug-and-play solutions to bare shell options, we connect you with the perfect workspace for your business.
               </p>
             </div>
 
@@ -68,7 +68,7 @@ export default function HeroSection({ isMobile, onOpenPopup }: HeroSectionProps)
                 <div className="flex items-center text-primary">
                   <Building2 className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
                 </div>
-                <p className="font-heading text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-foreground">100+</p>
+                <p className="font-heading text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-foreground">200+</p>
                 <p className="font-paragraph text-xs sm:text-sm text-gray-600">Verified Spaces</p>
               </motion.div>
               
