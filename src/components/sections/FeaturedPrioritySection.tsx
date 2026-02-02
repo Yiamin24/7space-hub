@@ -240,7 +240,7 @@ export default function FeaturedPrioritySection({ onOpenPopup }: FeaturedPriorit
                 Inquire Now
               </Button>
               <Button
-                onClick={() => window.open('https://wa.me/919876543210', '_blank')}
+                onClick={() => window.open('https://wa.me/919740740366', '_blank')}
                 variant="outline"
                 className="border-2 border-primary text-primary hover:bg-primary hover:text-white text-sm sm:text-base w-full sm:w-auto"
                 size="lg"

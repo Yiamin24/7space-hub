@@ -61,12 +61,12 @@ export default function HomePage() {
   }, [isMobile]);
 
   const handleWhatsAppClick = () => {
-    window.open('https://wa.me/919876543210', '_blank');
+    window.open('https://wa.me/919740740366', '_blank');
   };
 
   const handleGetOptions = () => {
     const message = `Hi, I'm looking for a commercial office space in Pune.\\n\\nLocation: ${location || 'Any'}\\nCarpet Area: ${carpetArea || 'Any'}\\nBudget: ${budget || 'Any'}`;
-    window.open(`https://wa.me/919876543210?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/919740740366?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   const locations = ['Baner', 'Balewadi', 'Wakad', 'Aundh', 'Hinjewadi', 'PCMC', 'Pashan'];
